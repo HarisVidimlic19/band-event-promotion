@@ -8,7 +8,22 @@ Use **Workers Static Assets with GitHub integration** for this website. The read
 - Production branch: **`main`**
 - Project root: the repository root
 
-The original website pull request has been merged into `main`. Merge the desired revision before deploying it. Pushes to Cloudflare's selected production branch will update the deployed site; keep feature work in preview branches until it is ready.
+The original website pull request has been merged into `main`. Merge the desired revision before deploying it. Once the Cloudflare Git integration is connected and enabled, pushes to its selected production branch update the deployed site; keep feature work in preview branches until it is ready.
+
+## A merge is not deploying
+
+A GitHub merge updates source code; `wrangler.jsonc` alone does not create a Cloudflare project or Git build trigger. The ChatGPT Sites preview is a separate deployment from any project in the user's Cloudflare account.
+
+PR #2 merged to `main` at commit `a4bee69c9629e872462eb3c5a10814b7dba4b75f`. At the November 2, 2026 investigation (America/Toronto), GitHub exposed no status checks or check-runs on that merge, and Actions history contained only Copilot reviews. Both former feature branches were deleted. This does not prove no deployment exists; Cloudflare's own configuration and build logs are the authority.
+
+For an existing **Worker**, open Settings → Build:
+
+1. Confirm the connected repository is `HarisVidimlic19/band-event-promotion` and Git integration is enabled.
+2. Under Branch control, set the production branch to `main`. A deleted feature branch will not receive future merges.
+3. Confirm repository root, `npm run check && npm test` as the build command, and `npx wrangler deploy` as the deploy command.
+4. Check the build/deployment list for the intended `main` commit. If a build failed, use its log; if no build started, inspect the Git connection and branch trigger before changing application code.
+
+For a **Pages** project, use the Pages alternative below. A manually uploaded project is not automatically linked to GitHub just because a repository contains this website. Do not create a second hosting project until the current setup is identified.
 
 ## Wrangler configuration
 
@@ -55,19 +70,19 @@ A private GitHub repository does not make the deployed website private. The `wor
 
 After Cloudflare assigns the real hostname, update the absolute `og:image` URL in `dist/index.html` to the deployed origin followed by `/assets/social-card.png`. It must not continue pointing to the old `chatgpt.site` deployment. Use the final production hostname again if a custom domain is connected later.
 
-The CSS, JavaScript, fonts, and artwork use relative paths and do not need hostname changes. Language selection uses browser storage. Contact links remain unpublished until verified band contact details are supplied; hosting it on Cloudflare does not create a mail or payment backend.
+The CSS, JavaScript, fonts, and artwork use relative paths and do not need hostname changes. Language selection uses browser storage. The Facebook link is supplied by the user; email and phone remain unpublished until supplied; hosting it on Cloudflare does not create a mail or payment backend.
 
 ## Verify the production test
 
 - Open the root page over HTTPS and check that artwork and local fonts load.
 - Switch Bosnian/English, test the mobile menu, and inspect both upcoming and past event tabs.
 - Confirm there are no ticket purchase buttons while the event list is empty.
-- Open a past event and confirm it links to its source without offering a ticket purchase.
+- With no verified historical events, confirm the Past listings tab and archive shortcut are hidden.
 - Open and close a photo, then check the ticket FAQ.
 - Open `/assets/social-card.png` on the new hostname and verify the Open Graph image uses that same production origin.
 - Check the browser console and network panel for missing assets or references to the previous host.
 
-The website still has no live events, payment processing, admission-ticket issuance, or published contact details. Add verified content and connect the ticket provider using [TICKETING.md](TICKETING.md) when those details are available.
+The website still has no live events, payment processing, admission-ticket issuance, or a published email/phone contact. Add verified content and connect the ticket provider using [TICKETING.md](TICKETING.md) when those details are available.
 
 ## Pages alternative
 

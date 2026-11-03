@@ -15,8 +15,12 @@ Checked November 2, 2026 (America/Toronto), against the redesigned static site.
 
 Temporary browser QA pages/scripts were removed before final checks and packaging. The site check rejects files prefixed `qa-` in the public directory.
 
+## Facebook correction follow-up
+
+The user supplied the band’s Facebook link and rejected the earlier candidate. The exact supplied link is configured; all unverified same-name archive entries were removed, and archive navigation is hidden while no historical events are confirmed. The original redesign checks above describe the previous revision; the current public configuration contains no events.
+
 ## Limits
 
-No live event checkout, payment account, inventory, email-ticket delivery, QR admission, refunds, contact email or official Facebook profile is configured or end-to-end tested. The default site still accepts no money. Hosted ticketing setup and a real event link are required before opening sales.
+No live event checkout, payment account, inventory, email-ticket delivery, QR admission, refunds, or contact email is configured or end-to-end tested. The Facebook destination is user-supplied, but Facebook’s page content could not be independently retrieved. The default site still accepts no money. Hosted ticketing setup and a real event link are required before opening sales.
 
 The screenshot is from the local preview. A successful Sites deployment is verified by its native deployment result; this does not verify deployment to the owner's independent Cloudflare account.
