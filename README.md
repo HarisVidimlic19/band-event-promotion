@@ -1,53 +1,57 @@
 # Sto Posto Live Band
 
-Professional Bosnian/English band website. Charcoal, ivory and copper identity; responsive layout; original SVG artwork; locally hosted fonts; configurable event links; no subscriptions or runtime dependencies required by this frontend.
+An English-first, Bosnian/English band website with real performance photography, a charcoal and warm-gold palette, responsive navigation, event details, and a direct route to hosted ticket checkout. Static HTML, CSS and JavaScript; no runtime dependencies or monthly software subscription required by this frontend.
 
 ## View and edit
 
-- Website source: `dist/` (ready to serve directly).
-- Content and confirmed event data: `dist/data.js`.
-- Bosnian/English copy and interactions: `dist/app.js`.
-- Layout and colour system: `dist/styles.css`.
-- Editable promotional artwork: `dist/assets/social-card.svg` (Illustrator/Inkscape compatible; open with Nimbus Sans fonts installed, or substitute your fonts).
-- Facebook link preview: `dist/assets/social-card.png`, 1200 × 630.
+- Website source: `dist/`, ready to serve.
+- Confirmed event data, contacts and default language: `dist/data.js`.
+- Translations, event dialogs and interactions: `dist/app.js`.
+- Layout: `dist/styles.css`.
+- Original supplied performance photos: `dist/assets/band/`.
+- Research and photo provenance: [docs/RESEARCH.md](docs/RESEARCH.md).
+- Ticketing integration and launch steps: [docs/TICKETING.md](docs/TICKETING.md).
 
-The typographic artwork is code-authored, AI-assisted vector design, not AI-generated photography. No photos or promotional details from the reference band were reused. It is an interim visual until approved photos of the three Sto Posto members are available.
+The three supplied photos are unaltered copies. CSS controls their display crop; no synthetic people, AI photo generation or face changes are used. Member names have not been inferred. The Illustrator banner is deferred; existing `social-card.svg` / `social-card.png` are the earlier interim graphic and can be replaced in that phase. Preserve the photos as source material for the banner.
 
-## Current launch state
+## Current state
 
-This is a working band website with **no active ticket sales**. No events, prices, venue, band contact addresses or member names were invented. `events: []` shows the coming-soon state. Event checkout links only appear for validated, future, on-sale events whose exact host is approved. This frontend never processes payments or issues admission tickets itself.
+English loads by default. A visitor can explicitly choose Bosnian and retain that choice in their browser. The new preference key does not import the old site's automatically saved Bosnian default. Both initial HTML and JavaScript default to English.
 
-The enquiry form downloads a text draft to the visitor's device. It does not store or submit enquiries. Supplying a valid band email in `dist/data.js` changes the action to opening a prefilled email; the visitor still sends it in their email app. Form inputs start disabled and are enabled only after the JavaScript handlers initialize, preventing a fallback GET submission of personal data.
+The archive contains three sourced **past event listings**, each with its original announcement. No future event, ticket price, payment account, band contact address or official Facebook URL has been invented. The possible November 20 event and Facebook candidate are recorded only in the research notes until confirmed.
+
+There are **no active ticket sales**. Event detail dialogs support venue-local dates, approved prices and fee wording, age restrictions, refund terms, ticket delivery and a direct checkout button. Purchase links appear only for a valid future `on_sale` event on an exact approved hostname, and are rechecked when clicked. Ticket Tailor, pretix and Eventbrite checkout links are supported. The provider owns quantity selection, inventory, payment, confirmation and admission tickets.
+
+The previous enquiry-download form has been removed. Contact information renders once confirmed public contacts are configured. No message is claimed to have been sent, and this site collects no payment details.
 
 ## Local preview and checks
 
-Use any static HTTP server pointed at `dist/`, for example `python3 -m http.server 8080 --directory dist`, and open `http://localhost:8080`. Opening `index.html` directly from the filesystem will not load ES modules correctly.
+Serve `dist/` with a static HTTP server, for example `python3 -m http.server 8080 --directory dist`. Open `http://localhost:8080`; loading ES modules from a local `file:` URL is unsupported.
 
-Node 20+ is sufficient for checks. No dependency installation is necessary:
+Node 20+ is enough for checks; there are no app dependencies to install:
 
 ```sh
-npm test
 npm run check
+npm test
 ```
 
-## Before public promotion
+Temporary browser QA fixtures must never be published. The site check rejects `qa-*` files in `dist/`.
 
-1. Supply approved photographs of all three members (ideally separate high-resolution portraits with simple backgrounds), their names, instruments and preferred order. Set `heroImage` and both localized `heroImageAlt` strings once the final image is exported into `dist/assets/`.
-2. Supply the band's real contact email, phone and official social URLs. The current configuration deliberately leaves these unset.
-3. Confirm the first event's date, venue, ticket prices, age/refund policies and organizer. Connect a live ticket provider using [the ticketing guide](docs/TICKETING.md), then test checkout, confirmation and check-in in that provider.
-4. Choose the production domain and audience. The first Sites deployment is owner-private for review. Update the absolute Open Graph image URL in `dist/index.html` if moving to another hostname.
-5. Review both languages, including the proposed marketing copy, with the band before publishing publicly.
+## Hosting
 
-## Hosting and ownership
+- The existing private Sites preview is https://sto-posto-live-band.hvidimlic1234.chatgpt.site . Keep its `.openai/hosting.json` identity unchanged.
+- To host on your Cloudflare account, use `wrangler.jsonc` and [docs/CLOUDFLARE.md](docs/CLOUDFLARE.md). Only `dist/` is public website content.
+- The original website PR has been merged to GitHub `main`. Subsequent revisions are reviewed in their own PRs. Use `main` for a GitHub-connected Cloudflare production project, after merging the intended revision.
+- When the actual production hostname is known, update the absolute Open Graph image URL in `dist/index.html`. It currently uses the private Sites origin. Replace it before promoting the public Cloudflare URL on Facebook.
 
-For deployment to your own Cloudflare account, use the checked-in `wrangler.jsonc` and [Cloudflare deployment guide](docs/CLOUDFLARE.md). It serves `dist/` as static assets on Workers. Select `feature/sto-posto-website` as the production branch while the website pull request is unmerged; `main` does not yet contain the site. A Cloudflare deployment has not yet been completed or verified.
+The website can also be served on the MiniPC behind HTTPS. Hosted ticket links do not require a MiniPC backend. No Cloudflare deployment is verified by this repository's configuration alone.
 
-The entire `dist/` directory can be hosted on the MiniPC behind an HTTPS reverse proxy/tunnel, or on static hosting. It does not require the MiniPC while deployed on Sites. `.openai/hosting.json` preserves the Sites project ID for subsequent updates; keep it unchanged for that Site. The private GitHub repository holds the same source for editing and portability.
+## Before opening sales
 
-Ticketing/payment services have their own fees and operating requirements. A self-hosted pretix backend with manually verified Interac transfers can be connected through a public HTTPS ticket URL later. The static website does not automatically verify bank deposits.
+Confirm the band's official social URL and booking contact. Approve the first event's date/time, venue, ticket types, capacity, price/fees, age policy, refund terms and delivery instructions. Create the ticketing account and payment connection, test payment and QR admission, then supply the actual public event checkout link. Follow [the ticketing guide](docs/TICKETING.md).
 
-Do not commit credentials, attendee lists, QR ticket secrets, bank records or order exports. Configuration is publicly downloadable when the site is public. Only public band content belongs in `dist/data.js`.
+Never commit credentials, attendee lists, ticket secrets, bank records or order exports. `dist/data.js` is public to every visitor. Ticketing and payment providers have their own fees; the free static website does not remove card-processing or ticket-service charges.
 
-## Fonts and assets
+## Fonts
 
-`display.otf` is the unmodified Nimbus Sans Narrow Bold font; `body.otf` is the unmodified Nimbus Sans Regular font from URW Base35. Their full copyright/license notice is included in `dist/assets/FONT-LICENSE.txt`. Font sources: https://github.com/ArtifexSoftware/urw-base35-fonts . Artwork is kept separately from these font programs. The downloaded enquiry text and selected language remain local to the visitor's browser; no advertising trackers or third-party font requests are used.
+The locally hosted Nimbus Sans Narrow Bold and Nimbus Sans Regular fonts are unmodified URW Base35 files. Their copyright/license notice is in `dist/assets/FONT-LICENSE.txt`; upstream: https://github.com/ArtifexSoftware/urw-base35-fonts . No third-party fonts or advertising trackers are loaded.

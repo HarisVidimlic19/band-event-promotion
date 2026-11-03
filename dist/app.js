@@ -2,130 +2,113 @@ import { SITE_CONFIG } from './data.js';
 import { validateEvent, validateSiteConfig, getAvailableEvents, getEventStatus, formatEventDate, isSafeHttpsUrl } from './lib/events.js';
 
 const translations = {
-  bs: {
-    skip:'Preskoči na sadržaj',homeLabel:'Sto Posto Live Band, početna',navLabel:'Glavna navigacija',mobileNavLabel:'Mobilna navigacija',menuLabel:'Otvori meni',closeLabel:'Zatvori',filterLabel:'Filter nastupa',goEvents:'Idi na nastupe',
-    navEvents:'Nastupi & ulaznice',navBand:'O bendu',navContact:'Kontakt',tickets:'Ulaznice',heroEyebrow:'BOSANSKI BEND · KANADA',heroTagline:'Naša muzika. Vaša noć.',heroDescription:'Tri muzičara. Jedna ljubav prema muzici koja nas spaja. Dobro došli u svijet Sto Posto Live Banda.',seeEvents:'Pogledaj nastupe',meetBand:'Upoznaj bend',visualTop:'MUZIKA BEZ GRANICA',visualLine1:'NAŠ ZVUK.',visualLine2:'NAŠA PRIČA.',visualSide:'STO POSTO MUZIKE. STO POSTO UŽIVO.',heroFooter:'ZA SVE KOJI MUZIKU OSJEĆAJU KAO SVOJU.',
-    eventsEyebrow:'NASTUPI & ULAZNICE',eventsTitle:'Vaša sljedeća<br>noć za pamćenje.',eventsDescription:'Svi naši naredni nastupi na jednom mjestu. Pronađite svoj grad, odaberite događaj i budite dio naše priče.',upcoming:'Naredni nastupi',past:'Prethodni nastupi',officialSite:'SLUŽBENA STRANICA BENDA',posterHeadline:'SLJEDEĆA<br>STANICA?',posterBottom:'VIDIMO SE USKORO.',datesSoon:'NOVI DATUMI USKORO',emptyTitle:'Najbolje noći<br>tek dolaze.',emptyDescription:'Pripremamo naredne susrete. Čim datumi budu potvrđeni, ovdje ćete pronaći gradove, lokacije i informacije o ulaznicama.',pastLabel:'NAŠI SUSRETI',pastTitle:'Svaka noć<br>ima svoju priču.',pastDescription:'Arhiva naših nastupa bit će objavljena ovdje. Za nove datume pogledajte naredne nastupe.',shareBand:'Podijeli s rajom',shareTitle:'Sto Posto Live Band',shareText:'Naša muzika. Vaša noć. Pratite nastupe Sto Posto Live Banda.',linkCopied:'Link je kopiran. Podijelite ga s rajom.',shareFallback:'Kopirajte adresu iz svog preglednika i podijelite je.',ticketNote:'Potvrđeni nastupi i službeni linkovi za ulaznice bit će objavljeni ovdje.',buyTickets:'Kupi ulaznice',announced:'Ulaznice uskoro',sold_out:'Rasprodano',postponed:'Odgođeno',cancelled:'Otkazano',pastStatus:'Završen nastup',on_sale:'Ulaznice u prodaji',
-    bandEyebrow:'NAŠA PRIČA',bandTitle:'Tri muzičara.<br>Jedna energija.',bandIntro:'Daleko od kuće.<br>Blizu onoga što nas spaja.',bandDescription:'Sto Posto Live Band je bosanski bend u Kanadi. Muzika je naš način da okupimo ljude — da zapjevamo zajedno, podijelimo trenutak i osjetimo se kao kod kuće.',bandDescription2:'Naša priča nastavlja se u sastavu od tri muzičara. Vi donosite svoju raju. Mi donosimo sto posto.',bandSignature:'S LJUBAVLJU PREMA MUZICI.',
-    faqEyebrow:'DOBRO JE ZNATI',faqTitle:'Sve prije<br>prvog refrena.',faqQ1:'Gdje mogu kupiti ulaznice?',faqA1:'Kada prodaja počne, uz potvrđeni nastup pojavit će se dugme „Kupi ulaznice“. Ono vodi na službenu stranicu za kupovinu. Naredni datumi još nisu objavljeni.',faqA1Active:'Uz nastupe s otvorenom prodajom nalazi se dugme „Kupi ulaznice“. Ono vodi na službenu stranicu za kupovinu. Prije plaćanja provjerite detalje događaja, cijenu i uslove prodaje.',faqQ2:'Kako dobijam svoju ulaznicu?',faqA2:'Na stranici za kupovinu bit će navedeni način plaćanja, dostava ulaznica i uslovi za odabrani događaj. Sačuvajte potvrdu kupovine i provjerite email koji unesete pri naručivanju.',faqQ3:'Kako mogu kontaktirati bend?',faqA3:'Informacije za kontakt nalaze se ispod. Dok pripremamo službene kanale, ovdje možete sastaviti i sačuvati upit za svoj događaj.',faqA3Active:'Koristite kontakt ispod ili pripremite upit s datumom, gradom i opisom događaja. Ako je email dostupan, obrazac otvara vašu email aplikaciju za slanje.',
-    contactEyebrow:'HAJDE DA SE ČUJEMO',contactTitle:'Vaš događaj.<br>Sto posto muzike.',contactDescription:'Imate datum i mjesto na umu? Pripremite nekoliko detalja o svom događaju.',contactSoon:'Službene informacije za kontakt objavljujemo uskoro.',formTitle:'Pripremite svoj upit',formIntro:'Sačuvajte upit na svom uređaju. Ovaj obrazac trenutno ne šalje poruku bendu.',formIntroActive:'Pripremite upit, a zatim ga pošaljite bendu kroz svoju email aplikaciju.',yourName:'Vaše ime',yourEmail:'Email',eventDate:'Željeni datum',eventCity:'Grad / lokacija',yourMessage:'Recite nam više',saveInquiry:'Preuzmi upit',sendInquiry:'Otvori email upit',formPrivacy:'Vaši podaci ostaju u pregledniku dok ne preuzmete upit ili ga pošaljete kroz svoj email.',formSaved:'Upit je preuzet na vaš uređaj. Nije poslan bendu.',formEmailOpened:'Upit je pripremljen za vašu email aplikaciju. Potrebno ga je poslati iz te aplikacije.',inquirySubject:'Upit za nastup — Sto Posto Live Band',dateFlexible:'Datum po dogovoru',
-    footerLine:'Naša muzika. Vaša noć.',privacy:'Privatnost',backTop:'Na vrh ↑',privacyText:'Ova stranica ne koristi marketinške kolačiće niti analitiku. Vaš izbor jezika pohranjuje se samo u ovom pregledniku. Upit za događaj nije poslan niti sačuvan na našem serveru: možete ga preuzeti na svoj uređaj. Ako bude dostupan email kontakt, slanje se obavlja kroz vašu email aplikaciju. Vanjske stranice za ulaznice imaju vlastite uslove i pravila privatnosti. Hosting pružatelj može obrađivati tehničke podatke potrebne za isporuku i sigurnost stranice.'
-  },
   en: {
-    skip:'Skip to content',homeLabel:'Sto Posto Live Band, home',navLabel:'Main navigation',mobileNavLabel:'Mobile navigation',menuLabel:'Open menu',closeLabel:'Close',filterLabel:'Show filter',goEvents:'Go to shows',
-    navEvents:'Shows & tickets',navBand:'The band',navContact:'Contact',tickets:'Tickets',heroEyebrow:'BOSNIAN BAND · CANADA',heroTagline:'Our music. Your night.',heroDescription:'Three musicians. One love for the music that brings us together. Welcome to the world of Sto Posto Live Band.',seeEvents:'Explore the shows',meetBand:'Meet the band',visualTop:'MUSIC WITHOUT BORDERS',visualLine1:'OUR SOUND.',visualLine2:'OUR STORY.',visualSide:'ONE HUNDRED PERCENT MUSIC. ONE HUNDRED PERCENT LIVE.',heroFooter:'FOR EVERYONE WHO FINDS A LITTLE HOME IN MUSIC.',
-    eventsEyebrow:'SHOWS & TICKETS',eventsTitle:'Your next<br>unforgettable night.',eventsDescription:'All our upcoming shows, together in one place. Find your city, choose your event and become part of the story.',upcoming:'Upcoming shows',past:'Past shows',officialSite:'OFFICIAL BAND WEBSITE',posterHeadline:'THE NEXT<br>STOP?',posterBottom:'SEE YOU SOON.',datesSoon:'NEW DATES COMING SOON',emptyTitle:'The best nights<br>are still to come.',emptyDescription:'Our next get-togethers are taking shape. Once dates are confirmed, you’ll find the cities, venues and ticket information right here.',pastLabel:'OUR GET-TOGETHERS',pastTitle:'Every night<br>has a story.',pastDescription:'Our show archive will appear here. Switch to upcoming shows to find our next dates.',shareBand:'Share with your people',shareTitle:'Sto Posto Live Band',shareText:'Our music. Your night. Discover the next Sto Posto Live Band shows.',linkCopied:'Link copied. Share it with your people.',shareFallback:'Copy the address from your browser to share this page.',ticketNote:'Confirmed shows and official ticket links will be published here.',buyTickets:'Buy tickets',announced:'Tickets coming soon',sold_out:'Sold out',postponed:'Postponed',cancelled:'Cancelled',pastStatus:'Past show',on_sale:'Tickets on sale',
-    bandEyebrow:'OUR STORY',bandTitle:'Three musicians.<br>One shared energy.',bandIntro:'A little far from home.<br>A little closer through music.',bandDescription:'Sto Posto Live Band is a Bosnian band based in Canada. Music is how we bring people together — to sing along, share a moment and feel a little closer to home.',bandDescription2:'Our story continues as a three-piece band. You bring your people. We bring one hundred percent.',bandSignature:'FOR THE LOVE OF MUSIC.',
-    faqEyebrow:'GOOD TO KNOW',faqTitle:'Before the<br>first chorus.',faqQ1:'Where can I buy tickets?',faqA1:'When sales open, a “Buy tickets” button will appear beside the confirmed show. It takes you to the official checkout. Our next show dates have not been announced yet.',faqA1Active:'Shows with open sales have a “Buy tickets” button that takes you to the official checkout. Check the event details, price and sales terms before paying.',faqQ2:'How will I receive my ticket?',faqA2:'The checkout page will explain payment, ticket delivery and the terms for your chosen event. Keep your order confirmation and double-check the email address you enter when booking.',faqQ3:'How can I contact the band?',faqA3:'Contact information appears below. While our official channels are being prepared, you can write and download an enquiry for your event here.',faqA3Active:'Use the contact details below, or prepare an enquiry with your event date, city and details. If email is available, the form opens your email app for you to send it.',
-    contactEyebrow:'LET’S GET TOGETHER',contactTitle:'Your occasion.<br>Our kind of music.',contactDescription:'Have a date and a place in mind? Put together a few details about your event.',contactSoon:'Official contact details will be announced soon.',formTitle:'Prepare your enquiry',formIntro:'Save an enquiry on your device. This form does not currently send a message to the band.',formIntroActive:'Prepare your enquiry, then send it to the band through your email app.',yourName:'Your name',yourEmail:'Email',eventDate:'Preferred date',eventCity:'City / venue',yourMessage:'Tell us a little more',saveInquiry:'Download enquiry',sendInquiry:'Open email enquiry',formPrivacy:'Your details stay in your browser until you download the enquiry or send it through your email app.',formSaved:'Your enquiry was downloaded to your device. It has not been sent to the band.',formEmailOpened:'The enquiry is ready for your email app. You still need to send it from that app.',inquirySubject:'Performance enquiry — Sto Posto Live Band',dateFlexible:'Date to be confirmed',
-    footerLine:'Our music. Your night.',privacy:'Privacy',backTop:'Back to top ↑',privacyText:'This website uses no marketing cookies or analytics. Your language choice is stored only in this browser. Event enquiries are not sent to or saved on our server: you can download yours to your device. If an email contact is available, sending happens through your own email app. External ticketing websites have their own terms and privacy policies. The hosting provider may process technical information needed to deliver and secure this website.'
+    skip:'Skip to content',homeLabel:'Sto Posto Live Band, home',navLabel:'Main navigation',mobileNavLabel:'Mobile navigation',menuLabel:'Open menu',closeLabel:'Close',filterLabel:'Show filter',photosLabel:'The band on stage',photoDialogLabel:'Performance photo',
+    navEvents:'Shows & tickets',navBand:'The band',navContact:'Contact',tickets:'Tickets',heroEyebrow:'BOSNIAN ROOTS. LIVE IN CANADA.',heroTagline:'One hundred percent live.',heroDescription:'The songs you know. The people you love.<br>A little closer to home, wherever we play.',seeEvents:'Shows & tickets',meetBand:'Meet the band',heroCaption:'THREE MUSICIANS. ONE SHARED ENERGY.',introLine:'For the music. For the memories. For our people.',introLink:'See what’s next ↓',
+    eventsEyebrow:'COME FOR THE MUSIC. STAY FOR THE NIGHT.',eventsTitle:'Be there. <em>Sing along.</em>',upcoming:'Upcoming',past:'Past listings',archiveNote:'Previously advertised shows, with links to the original event listings.',datesSoon:'THE NEXT CHAPTER',emptyTitle:'New nights are on the way.',emptyDescription:'Our next confirmed shows will be announced here, with the venue, price and a direct link to tickets.',browsePast:'Explore past listings',ticketHelpTitle:'Your night starts here.',ticketHelpDescription:'Choose a show. Review the details. Follow its official ticket link to checkout.',ticketQuestionsLink:'Ticket questions ↓',
+    viewEvent:'View event',eventDetails:'EVENT DETAILS',buyTickets:'Buy tickets',announced:'Tickets coming soon',on_sale:'Tickets on sale',sold_out:'Sold out',postponed:'Postponed',cancelled:'Cancelled',pastStatus:'Past listing',date:'When',venue:'Where',price:'Tickets from',priceIncludes:'Includes listed fees. Review the final total at checkout.',priceExcludes:'Additional fees may apply. Review the final total at checkout.',checkoutHandoff:'Choose ticket types and quantity at the official checkout. Your order is only confirmed by the ticket seller after checkout.',notOnSale:'Tickets are not available for this event here.',source:'View original event listing ↗',agePolicy:'Age policy',refundPolicy:'Refund policy',ticketDelivery:'Ticket delivery',unknownPolicy:'Check the seller’s age restrictions, refund terms and ticket delivery instructions before paying.',
+    bandEyebrow:'THE MUSIC BRINGS US TOGETHER',bandTitle:'Our roots.<br><em>Our rhythm.</em>',bandDescription:'We’re Sto Posto Live Band — three musicians with Bosnian roots and a love for playing live in Canada.',bandDescription2:'From a familiar folk song to a room singing together, it’s about the moments we share. Bring your friends. Make a night of it.',accordion:'Accordion',vocals:'Vocals',bass:'Bass',accordionAlt:'Accordion player performing on stage',vocalsAlt:'Vocalist singing among the audience',bassAlt:'Bass guitarist performing on stage',accordionView:'View accordion performance photo',vocalsView:'View vocalist performance photo',bassView:'View bass performance photo',
+    faqEyebrow:'BEFORE YOU HEAD OUT',faqTitle:'Good to know.',faqIntro:'A little planning. A great night.',faqQ1:'How do I buy tickets?',faqA1:'Select an upcoming show to see its date, venue and ticket details. When sales open, “Buy tickets” takes you directly to that show’s official checkout.',faqQ2:'Which payment methods can I use?',faqA2:'Available cards, digital wallets and other payment methods are shown at checkout. Ticket sales are not open on this website yet.',faqA2Active:'Available cards, digital wallets and other payment methods are shown at the official checkout for your chosen event.',faqQ3:'Where is my ticket and order confirmation?',faqA3:'Ticket delivery instructions appear with each event and at checkout. Use an email address you can access and keep your order confirmation. For an existing order, contact the ticket seller listed on your receipt.',faqQ4:'Can I get a refund or bring children?',faqA4:'Age restrictions and refund terms vary by event. Check the event details and the seller’s policy before paying.',
+    contactEyebrow:'LET’S MAKE A NIGHT OF IT',contactTitle:'Your people.<br><em>Our music.</em>',contactDescription:'Planning a celebration or a live music night? We’d love to hear what you have in mind.',contactSoon:'Booking contact details will be published here soon.',shareBand:'Share the band',shareText:'Discover Sto Posto Live Band. Bosnian roots. One hundred percent live.',linkCopied:'Link copied. Share it with your people.',shareFallback:'Copy the address from your browser to share this page.',
+    footerLine:'Bosnian roots. One hundred percent live.',privacy:'Privacy',privacyText:'This site uses no marketing cookies or analytics. Your chosen language is stored in your browser. We do not collect payment details here. External ticketing sites have their own terms and privacy policies. Our hosting provider may process technical information needed to deliver and secure this site.'
+  },
+  bs: {
+    skip:'Preskoči na sadržaj',homeLabel:'Sto Posto Live Band, početna',navLabel:'Glavna navigacija',mobileNavLabel:'Mobilna navigacija',menuLabel:'Otvori meni',closeLabel:'Zatvori',filterLabel:'Filter nastupa',photosLabel:'Bend na sceni',photoDialogLabel:'Fotografija s nastupa',
+    navEvents:'Nastupi i ulaznice',navBand:'O bendu',navContact:'Kontakt',tickets:'Ulaznice',heroEyebrow:'BOSANSKI KORIJENI. UŽIVO U KANADI.',heroTagline:'Sto posto uživo.',heroDescription:'Pjesme koje znate. Ljudi koje volite.<br>Bliže kući, gdje god sviramo.',seeEvents:'Nastupi i ulaznice',meetBand:'Upoznajte bend',heroCaption:'TRI MUZIČARA. JEDNA ZAJEDNIČKA ENERGIJA.',introLine:'Za muziku. Za uspomene. Za našu raju.',introLink:'Pogledajte šta slijedi ↓',
+    eventsEyebrow:'DOĐITE ZBOG MUZIKE. OSTANITE ZBOG RAJE.',eventsTitle:'Budite tu. <em>Zapjevajte s nama.</em>',upcoming:'Naredni nastupi',past:'Prethodne najave',archiveNote:'Ranije najavljeni nastupi, s linkovima na izvorne objave događaja.',datesSoon:'NOVO POGLAVLJE',emptyTitle:'Nove noći su pred nama.',emptyDescription:'Ovdje ćemo objaviti naredne potvrđene nastupe, lokacije, cijene i direktne linkove za ulaznice.',browsePast:'Pogledajte prethodne najave',ticketHelpTitle:'Vaša noć počinje ovdje.',ticketHelpDescription:'Odaberite nastup. Provjerite detalje. Pratite službeni link za kupovinu ulaznica.',ticketQuestionsLink:'Pitanja o ulaznicama ↓',
+    viewEvent:'Detalji događaja',eventDetails:'DETALJI DOGAĐAJA',buyTickets:'Kupi ulaznice',announced:'Ulaznice uskoro',on_sale:'Ulaznice u prodaji',sold_out:'Rasprodano',postponed:'Odgođeno',cancelled:'Otkazano',pastStatus:'Prethodna najava',date:'Kada',venue:'Gdje',price:'Ulaznice od',priceIncludes:'Navedene naknade su uključene. Provjerite konačan iznos pri kupovini.',priceExcludes:'Moguće su dodatne naknade. Provjerite konačan iznos pri kupovini.',checkoutHandoff:'Vrstu i broj ulaznica birate na službenoj stranici za kupovinu. Narudžbu potvrđuje prodavač ulaznica nakon završetka kupovine.',notOnSale:'Ulaznice za ovaj događaj ovdje nisu dostupne.',source:'Pogledajte izvornu najavu ↗',agePolicy:'Dobna ograničenja',refundPolicy:'Uslovi povrata',ticketDelivery:'Dostava ulaznica',unknownPolicy:'Prije plaćanja provjerite dobna ograničenja, uslove povrata i način dostave ulaznica kod prodavača.',
+    bandEyebrow:'MUZIKA NAS SPAJA',bandTitle:'Naši korijeni.<br><em>Naš ritam.</em>',bandDescription:'Mi smo Sto Posto Live Band — tri muzičara s bosanskim korijenima i ljubavlju prema živoj muzici u Kanadi.',bandDescription2:'Od poznate narodne pjesme do sale koja pjeva zajedno — najvažniji su trenuci koje dijelimo. Povedite svoju raju. Uživajmo zajedno.',accordion:'Harmonika',vocals:'Vokal',bass:'Bas gitara',accordionAlt:'Harmonikaš svira na sceni',vocalsAlt:'Pjevač nastupa među publikom',bassAlt:'Bas gitarista svira na sceni',accordionView:'Pogledajte fotografiju harmonikaša',vocalsView:'Pogledajte fotografiju pjevača',bassView:'Pogledajte fotografiju bas gitariste',
+    faqEyebrow:'PRIJE NEGO KRENETE',faqTitle:'Dobro je znati.',faqIntro:'Malo planiranja. Odličan provod.',faqQ1:'Kako mogu kupiti ulaznice?',faqA1:'Odaberite naredni nastup da vidite datum, lokaciju i informacije o ulaznicama. Kada prodaja počne, dugme „Kupi ulaznice“ vodi direktno na službenu stranicu za kupovinu.',faqQ2:'Koje načine plaćanja mogu koristiti?',faqA2:'Dostupne kartice, digitalni novčanici i drugi načini plaćanja prikazani su pri kupovini. Prodaja ulaznica na ovoj stranici još nije otvorena.',faqA2Active:'Dostupne kartice, digitalni novčanici i drugi načini plaćanja prikazani su na službenoj stranici za kupovinu odabranog događaja.',faqQ3:'Gdje su moja ulaznica i potvrda narudžbe?',faqA3:'Upute za dostavu ulaznica nalaze se uz događaj i pri kupovini. Unesite email kojem imate pristup i sačuvajte potvrdu narudžbe. Za postojeću narudžbu obratite se prodavaču navedenom na potvrdi.',faqQ4:'Mogu li dobiti povrat novca ili dovesti djecu?',faqA4:'Dobna ograničenja i uslovi povrata razlikuju se za svaki događaj. Prije plaćanja provjerite detalje događaja i pravila prodavača.',
+    contactEyebrow:'NAPRAVIMO NOĆ ZA PAMĆENJE',contactTitle:'Vaša raja.<br><em>Naša muzika.</em>',contactDescription:'Planirate slavlje ili veče uz živu muziku? Radujemo se vašim idejama.',contactSoon:'Informacije za rezervacije nastupa uskoro objavljujemo ovdje.',shareBand:'Podijelite bend',shareText:'Upoznajte Sto Posto Live Band. Bosanski korijeni. Sto posto uživo.',linkCopied:'Link je kopiran. Podijelite ga s rajom.',shareFallback:'Kopirajte adresu iz svog preglednika i podijelite je.',
+    footerLine:'Bosanski korijeni. Sto posto uživo.',privacy:'Privatnost',privacyText:'Ova stranica ne koristi marketinške kolačiće niti analitiku. Vaš izbor jezika pohranjuje se u pregledniku. Ovdje ne prikupljamo podatke za plaćanje. Vanjske stranice za ulaznice imaju vlastite uslove i pravila privatnosti. Hosting pružatelj može obrađivati tehničke podatke potrebne za isporuku i sigurnost stranice.'
   }
 };
-
-let locale = ['bs', 'en'].includes(SITE_CONFIG.defaultLocale) ? SITE_CONFIG.defaultLocale : 'bs';
-let eventFilter = 'upcoming';
-try { const saved = localStorage.getItem('sto-posto-language'); if (saved === 'bs' || saved === 'en') locale = saved; } catch { /* Browsing without local storage is supported. */ }
-const configCheck = validateSiteConfig(SITE_CONFIG);
-if (!configCheck.valid) console.error('Invalid site configuration:', configCheck.errors);
-const validEvents = (configCheck.valid && Array.isArray(SITE_CONFIG.events) ? SITE_CONFIG.events : []).filter(event => validateEvent(event, SITE_CONFIG.checkoutHosts).valid);
-const $ = (selector) => document.querySelector(selector);
-const t = (key) => translations[locale][key] || translations.bs[key] || key;
-const textElement = (tag, text, className) => { const el = document.createElement(tag); el.textContent = text; if (className) el.className = className; return el; };
-
-function renderEvents() {
-  const events = getAvailableEvents(validEvents, eventFilter);
-  const list = $('#events-list');
-  list.replaceChildren();
-  $('#events-empty').hidden = events.length > 0;
-  $('#event-status').textContent = t(eventFilter === 'past' ? 'pastLabel' : 'datesSoon');
-  $('#empty-title').innerHTML = t(eventFilter === 'past' ? 'pastTitle' : 'emptyTitle');
-  $('#empty-description').textContent = t(eventFilter === 'past' ? 'pastDescription' : 'emptyDescription');
-  for (const event of events) {
-    const card = document.createElement('article'); card.className = 'event-card';
-    const date = textElement('time', formatEventDate(event, locale), 'event-card-date'); date.dateTime = event.startsAt;
-    const info = document.createElement('div');
-    info.append(textElement('h3',(event.title ?? event.name)[locale]),textElement('p',`${event.venue} · ${event.city}`));
-    if (event.ticketLabel) info.append(textElement('p',event.ticketLabel[locale]));
-    const status = getEventStatus(event);
-    card.append(date,info);
-    if (configCheck.valid && validateEvent(event,SITE_CONFIG.checkoutHosts).canPurchase) {
-      const link = textElement('a',`${t('buyTickets')} ↗`,'button button-outline-dark');
-      link.href = event.checkout.url; link.rel = 'noopener noreferrer';
-      link.addEventListener('click', e => { if (!validateEvent(event, SITE_CONFIG.checkoutHosts).canPurchase) { e.preventDefault(); renderEvents(); } });
-      card.append(link);
-    } else card.append(textElement('span',t(status === 'past' ? 'pastStatus' : status),'event-badge'));
-    list.append(card);
+const $ = selector => document.querySelector(selector);
+const textElement = (tag, text, className) => {const element=document.createElement(tag);element.textContent=text;if(className)element.className=className;return element;};
+const preferenceKey = 'sto-posto-language-v2';
+let locale = SITE_CONFIG.defaultLocale === 'bs' ? 'bs' : 'en';
+try {const saved=localStorage.getItem(preferenceKey);if(['en','bs'].includes(saved))locale=saved;} catch { /* Optional preference. */ }
+let eventFilter='upcoming';
+let currentEvent=null;
+let currentPhoto=null;
+const configCheck=validateSiteConfig(SITE_CONFIG);
+if(!configCheck.valid)console.error('Invalid site configuration:',configCheck.errors);
+const validEvents=(configCheck.valid?SITE_CONFIG.events:[]).filter(event=>validateEvent(event,SITE_CONFIG.checkoutHosts).valid);
+const t=key=>translations[locale][key]||translations.en[key]||key;
+const localized=value=>value?.[locale]||value?.en||'';
+const currency=value=>new Intl.NumberFormat(locale==='bs'?'bs-BA':'en-CA',{style:'currency',currency:'CAD',currencyDisplay:'code'}).format(value);
+const statusText=event=>t(getEventStatus(event)==='past'?'pastStatus':getEventStatus(event));
+function purchaseLink(event){
+  const link=textElement('a',t('buyTickets')+' ↗','button button-gold');link.href=event.checkout.url;link.rel='noopener noreferrer';
+  link.addEventListener('click',eventClick=>{if(!configCheck.valid||!validateEvent(event,SITE_CONFIG.checkoutHosts).canPurchase){eventClick.preventDefault();renderEvents();if(currentEvent)renderEventDetails();}});return link;
+}
+function renderEvents(){
+  const events=getAvailableEvents(validEvents,eventFilter);if(eventFilter==='past')events.reverse();
+  $('#events-list').replaceChildren();$('#events-empty').hidden=events.length>0;$('#archive-note').hidden=eventFilter!=='past'||events.length===0;
+  for(const event of events){
+    const card=document.createElement('article');card.className='event-card';
+    const date=document.createElement('time');date.className='date-block';date.dateTime=event.startsAt;date.setAttribute('aria-label',formatEventDate(event,locale));
+    const opts={timeZone:event.timeZone};const when=new Date(event.startsAt);const lang=locale==='bs'?'bs-BA':'en-CA';
+    date.append(textElement('span',(locale==='bs'?['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'][Number(new Intl.DateTimeFormat('en-CA',{...opts,month:'numeric'}).format(when))-1]:new Intl.DateTimeFormat(lang,{...opts,month:'short'}).format(when))),textElement('strong',new Intl.DateTimeFormat(lang,{...opts,day:'numeric'}).format(when)),textElement('small',new Intl.DateTimeFormat(lang,{...opts,year:'numeric'}).format(when)));
+    const info=document.createElement('div');info.append(textElement('span',statusText(event),'event-badge'));
+    const title=textElement('h3',localized(event.title??event.name));info.append(title,textElement('p',event.venue+' · '+event.city));
+    if(getEventStatus(event)!=='past'&&event.ticketLabel)info.append(textElement('p',localized(event.ticketLabel),'ticket-price'));
+    const available=validateEvent(event,SITE_CONFIG.checkoutHosts).canPurchase;
+    const view=textElement('button',t(available?'buyTickets':'viewEvent')+' ↗',available?'button button-gold':'button button-outline');view.type='button';view.dataset.eventId=event.id;view.setAttribute('aria-label',t(available?'buyTickets':'viewEvent')+': '+localized(event.title??event.name));view.addEventListener('click',()=>openEvent(event));
+    card.append(date,info,view);$('#events-list').append(card);
   }
-  document.querySelectorAll('[data-filter]').forEach(button => {const active = button.dataset.filter === eventFilter; button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active));});
-  if (validEvents.length) $('[data-i18n="faqA1"]').textContent = t('faqA1Active');
+  document.querySelectorAll('[data-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===eventFilter)));
+  if(validEvents.some(event=>validateEvent(event,SITE_CONFIG.checkoutHosts).canPurchase))$('[data-i18n="faqA2"]').textContent=t('faqA2Active');
 }
-
-function renderContacts() {
-  const channels = $('#contact-channels'); channels.replaceChildren();
-  if (!configCheck.valid) return;
-  const contactItems = [];
-  if (SITE_CONFIG.email) contactItems.push([SITE_CONFIG.email,`mailto:${SITE_CONFIG.email}`]);
-  if (SITE_CONFIG.phone) contactItems.push([SITE_CONFIG.phone,`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g,'')}`]);
-  if (SITE_CONFIG.facebookUrl && isSafeHttpsUrl(SITE_CONFIG.facebookUrl)) contactItems.push(['Facebook ↗',SITE_CONFIG.facebookUrl]);
-  if (SITE_CONFIG.instagramUrl && isSafeHttpsUrl(SITE_CONFIG.instagramUrl)) contactItems.push(['Instagram ↗',SITE_CONFIG.instagramUrl]);
-  for (const [label,href] of contactItems) {const a = textElement('a',label,'contact-channel');a.href=href;a.rel='noopener noreferrer';channels.append(a);}
-  $('#contact-availability').hidden = contactItems.length > 0;
-  if (contactItems.length) $('[data-i18n="faqA3"]').textContent=t('faqA3Active');
-  if (SITE_CONFIG.email) {$('#form-intro').textContent=t('formIntroActive');$('#form-submit').textContent=t('sendInquiry');}
+function renderEventDetails(){
+  const event=currentEvent;if(!event)return;const container=$('#event-detail-content');container.replaceChildren();
+  const title=textElement('h2',localized(event.title??event.name));title.id='event-detail-title';container.append(textElement('p',statusText(event),'event-badge'),title);
+  const meta=document.createElement('dl');meta.className='event-detail-meta';
+  for(const [label,value] of [[t('date'),formatEventDate(event,locale)],[t('venue'),event.venue+' · '+event.city]]){const row=document.createElement('div');row.append(textElement('dt',label),textElement('dd',value));meta.append(row);}container.append(meta);
+  if(event.description)container.append(textElement('p',localized(event.description),'event-detail-description'));
+  for(const field of ['agePolicy','refundPolicy','ticketDelivery']){if(event[field]){const section=document.createElement('div');section.className='event-policy';section.append(textElement('strong',t(field)),textElement('p',localized(event[field])));container.append(section);}}
+  const purchase=document.createElement('div');purchase.className='event-purchase';
+  if(validateEvent(event,SITE_CONFIG.checkoutHosts).canPurchase){
+    if(event.ticketLabel)purchase.append(textElement('div',localized(event.ticketLabel),'event-price'));else if(event.price)purchase.append(textElement('div',t('price')+' '+currency(event.price.amount),'event-price'));
+    purchase.append(textElement('p',event.priceNote?localized(event.priceNote):(locale==='bs'?'Konačan iznos je prikazan pri kupovini.':'The final total is shown at checkout.')));
+    if(!event.agePolicy||!event.refundPolicy||!event.ticketDelivery)purchase.append(textElement('p',t('unknownPolicy')));
+    purchase.append(purchaseLink(event),textElement('p',t('checkoutHandoff')));
+  }else purchase.append(textElement('p',t('notOnSale')));
+  if(event.sourceUrl&&isSafeHttpsUrl(event.sourceUrl)){const source=textElement('a',t('source'),'event-source');source.href=event.sourceUrl;source.rel='noopener noreferrer';purchase.append(source);}container.append(purchase);
 }
-
-function applyLanguage(next) {
-  locale = next;
-  document.documentElement.lang = locale;
-  document.querySelectorAll('[data-i18n]').forEach(el => {el.innerHTML=t(el.dataset.i18n);});
-  document.querySelectorAll('[data-label]').forEach(el => {el.setAttribute('aria-label',t(el.dataset.label));});
-  document.querySelectorAll('[data-lang]').forEach(el => el.setAttribute('aria-pressed',String(el.dataset.lang === locale)));
-  document.title = `${SITE_CONFIG.bandName} — ${t('heroTagline')}`;
-  $('meta[name="description"]').content = `${SITE_CONFIG.bandName}. ${t('heroDescription')}`;
-  $('.band-art-bottom').innerHTML=locale==='bs'?'JEDAN BEND.<br>STO POSTO.':'ONE BAND.<br>ONE HUNDRED PERCENT.';
-  $('.hero-footer>span:last-child').textContent=locale==='bs'?'ZA TRENUTKE KOJI OSTAJU.':'FOR MOMENTS THAT STAY.';
-  $('#form-status').textContent=''; $('#share-status').textContent='';
-  if (configCheck.valid && SITE_CONFIG.heroImage) {const image=$('#hero-image'); image.src=SITE_CONFIG.heroImage; image.alt=SITE_CONFIG.heroImageAlt[locale]; image.classList.add('portraits');}
-  renderEvents(); renderContacts();
-  try {localStorage.setItem('sto-posto-language',locale);} catch { /* Optional preference. */ }
+function openEvent(event,fromHash=false){currentEvent=event;renderEventDetails();if(!$('#event-dialog').open)$('#event-dialog').showModal();if(!fromHash)history.pushState(null,'','#show='+encodeURIComponent(event.id));}
+function eventFromHash(){let event=null;if(location.hash.startsWith('#show=')){try{const id=decodeURIComponent(location.hash.slice(6));event=validEvents.find(item=>item.id===id);}catch{/* Malformed deep links have no selected event. */}}if(event)openEvent(event,true);else if($('#event-dialog').open)$('#event-dialog').close();}
+function renderContacts(){
+  const channels=$('#contact-channels');channels.replaceChildren();const items=[];
+  if(configCheck.valid){if(SITE_CONFIG.email)items.push([SITE_CONFIG.email,'mailto:'+SITE_CONFIG.email]);if(SITE_CONFIG.phone)items.push([SITE_CONFIG.phone,'tel:'+SITE_CONFIG.phone.replace(/[^+\d]/g,'')]);if(SITE_CONFIG.facebookUrl)items.push(['Facebook ↗',SITE_CONFIG.facebookUrl]);if(SITE_CONFIG.instagramUrl)items.push(['Instagram ↗',SITE_CONFIG.instagramUrl]);}
+  for(const [label,href] of items){const link=textElement('a',label,'contact-channel');link.href=href;link.rel='noopener noreferrer';channels.append(link);}$('#contact-availability').hidden=items.length>0;
 }
-
-document.querySelectorAll('[data-lang]').forEach(el => el.addEventListener('click',()=>applyLanguage(el.dataset.lang)));
-document.querySelectorAll('[data-filter]').forEach(el => el.addEventListener('click',()=>{eventFilter=el.dataset.filter;renderEvents();}));
-function closeMenu(){ $('.menu-toggle').setAttribute('aria-expanded','false');$('#mobile-nav').hidden=true; }
+function applyLanguage(next,save=false){
+  locale=next;document.documentElement.lang=locale;
+  document.querySelectorAll('[data-i18n]').forEach(element=>element.innerHTML=t(element.dataset.i18n));
+  document.querySelectorAll('[data-label]').forEach(element=>element.setAttribute('aria-label',t(element.dataset.label)));
+  document.querySelectorAll('[data-alt]').forEach(element=>element.alt=t(element.dataset.alt));
+  document.querySelectorAll('[data-lang]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.lang===locale)));
+  document.title=SITE_CONFIG.bandName+' — '+t('heroTagline');$('meta[name="description"]').content=SITE_CONFIG.bandName+'. '+t('heroTagline');
+  renderEvents();renderContacts();if(currentEvent)renderEventDetails();if(currentPhoto)$('#full-photo').alt=t(currentPhoto+'Alt');$('#share-status').textContent='';
+  if(save)try{localStorage.setItem(preferenceKey,locale);}catch{/* Browsing without storage is supported. */}
+}
+function setFilter(value){eventFilter=value;renderEvents();}
+document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.lang,true)));
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>setFilter(button.dataset.filter)));
+$('#archive-button').addEventListener('click',()=>{setFilter('past');$('[data-filter="past"]').focus();});
+function closeMenu(){$('.menu-toggle').setAttribute('aria-expanded','false');$('#mobile-nav').hidden=true;}
 $('.menu-toggle').addEventListener('click',()=>{const open=$('.menu-toggle').getAttribute('aria-expanded')!=='true';$('.menu-toggle').setAttribute('aria-expanded',String(open));$('#mobile-nav').hidden=!open;});
 $('#mobile-nav').querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
 matchMedia('(min-width:761px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
-
-$('#share-button').addEventListener('click',async()=>{
-  const url = `${location.origin}${location.pathname}`;
-  try {
-    if(navigator.share){await navigator.share({title:t('shareTitle'),text:t('shareText'),url});return;}
-    await navigator.clipboard.writeText(url);$('#share-status').textContent=t('linkCopied');
-  } catch(error) {if(error.name!=='AbortError')$('#share-status').textContent=t('shareFallback');}
-});
-
-$('#booking-form').addEventListener('submit',event=>{
-  event.preventDefault();
-  const form=event.currentTarget;if(!form.reportValidity())return;
-  const data=new FormData(form);
-  const body=[t('inquirySubject'),'',`${t('yourName')}: ${String(data.get('name')).trim()}`,`${t('yourEmail')}: ${String(data.get('email')).trim()}`,`${t('eventDate')}: ${data.get('date')||t('dateFlexible')}`,`${t('eventCity')}: ${String(data.get('city')).trim()}`,'',String(data.get('message')).trim()].join('\n');
-  if(configCheck.valid && SITE_CONFIG.email){
-    location.href=`mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(t('inquirySubject'))}&body=${encodeURIComponent(body)}`;
-    $('#form-status').textContent=t('formEmailOpened');
-  }else{
-    const url=URL.createObjectURL(new Blob(['\uFEFF'+body],{type:'text/plain;charset=utf-8'}));
-    const link=document.createElement('a');link.href=url;link.download='sto-posto-event-enquiry.txt';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-    $('#form-status').textContent=t('formSaved');
-  }
-});
-
-const privacy=$('#privacy-dialog');
-$('#privacy-button').addEventListener('click',()=>privacy.showModal());
-$('#close-privacy').addEventListener('click',()=>privacy.close());
-privacy.addEventListener('click',event=>{if(event.target===privacy){const rect=privacy.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)privacy.close();}});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderEvents();});
-$('#year').textContent=new Date().getFullYear();
-applyLanguage(locale);
-$('#booking-fields').disabled = false;
+document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.close).close()));
+document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}));
+$('#event-dialog').addEventListener('close',()=>{const previousId=currentEvent?.id;currentEvent=null;if(location.hash.startsWith('#show='))history.replaceState(null,'','#shows');const opener=previousId?document.querySelector('[data-event-id="'+previousId+'"]'):null;(opener||document.querySelector('[data-filter][aria-pressed="true"]'))?.focus({preventScroll:true});});
+window.addEventListener('hashchange',eventFromHash);window.addEventListener('popstate',eventFromHash);
+const photos={accordion:'./assets/band/accordion.jpg',vocals:'./assets/band/vocals.jpg',bass:'./assets/band/bass.jpg'};
+document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{currentPhoto=button.dataset.photo;$('#full-photo').src=photos[currentPhoto];$('#full-photo').alt=t(currentPhoto+'Alt');$('#photo-dialog').showModal();}));
+$('#privacy-button').addEventListener('click',()=>$('#privacy-dialog').showModal());
+$('#share-button').addEventListener('click',async()=>{const url=location.origin+location.pathname;try{if(navigator.share){await navigator.share({title:SITE_CONFIG.bandName,text:t('shareText'),url});return;}await navigator.clipboard.writeText(url);$('#share-status').textContent=t('linkCopied');}catch(error){if(error.name!=='AbortError')$('#share-status').textContent=t('shareFallback');}});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){renderEvents();if(currentEvent)renderEventDetails();}});
+$('#year').textContent=new Date().getFullYear();applyLanguage(locale);eventFromHash();

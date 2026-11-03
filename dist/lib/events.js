@@ -1,6 +1,8 @@
 /** Small, dependency-free validation and presentation helpers for public events. */
 const LOCALES = ['bs', 'en'];
 const EVENT_STATUSES = ['announced', 'on_sale', 'sold_out', 'postponed', 'cancelled'];
+const CHECKOUT_PROVIDERS = ['pretix', 'eventbrite', 'ticket_tailor'];
+const OPTIONAL_EVENT_TEXT = ['description', 'agePolicy', 'refundPolicy', 'ticketDelivery', 'priceNote'];
 const ISO_INSTANT = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,3})?(Z|[+-]\d{2}:\d{2})$/;
 const hasText = (value) => typeof value === 'string' && value.trim().length > 0;
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -63,6 +65,14 @@ function validateLocalized(value, field, errors) {
   }
 }
 
+function validatePlainLocalized(value, field, errors) {
+  validateLocalized(value, field, errors);
+  if (isRecord(value) && LOCALES.some((locale) => typeof value[locale] === 'string'
+    && /[<>\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(value[locale]))) {
+    errors.push(`${field} must contain plain text, without HTML or control characters.`);
+  }
+}
+
 /**
  * Returns { valid, errors, canPurchase }. This does not verify inventory or
  * ownership of a checkout URL; the organizer must confirm those before launch.
@@ -82,12 +92,25 @@ export function validateEvent(event, checkoutHosts = []) {
   if (event.ticketLabel !== undefined && event.ticketLabel !== null) {
     validateLocalized(event.ticketLabel, 'ticketLabel', errors);
   }
+  for (const field of OPTIONAL_EVENT_TEXT) {
+    if (event[field] !== undefined) validatePlainLocalized(event[field], field, errors);
+  }
+  if (event.sourceUrl !== undefined && !isSafeHttpsUrl(event.sourceUrl)) {
+    errors.push('sourceUrl must be a public HTTPS URL.');
+  }
+  if (event.price !== undefined) {
+    if (!isRecord(event.price)
+      || typeof event.price.amount !== 'number' || !Number.isFinite(event.price.amount) || event.price.amount < 0
+      || event.price.currency !== 'CAD' || typeof event.price.includesFees !== 'boolean') {
+      errors.push('price must contain a nonnegative finite amount, currency CAD, and a boolean includesFees.');
+    }
+  }
   if (event.checkout !== undefined && event.checkout !== null) {
     if (!isRecord(event.checkout)) {
       errors.push('checkout must be an object or null.');
     } else {
-      if (!['pretix', 'eventbrite'].includes(event.checkout.provider)) {
-        errors.push('checkout.provider must be pretix or eventbrite.');
+      if (!CHECKOUT_PROVIDERS.includes(event.checkout.provider)) {
+        errors.push(`checkout.provider must be one of: ${CHECKOUT_PROVIDERS.join(', ')}.`);
       }
       if (!isSafeHttpsUrl(event.checkout.url, checkoutHosts)) {
         errors.push('checkout.url must be HTTPS on an explicitly approved checkout hostname.');
@@ -176,7 +199,15 @@ export function getEventStatus(event, now = new Date()) {
 /** Format one event's instant in its venue's time zone, not the visitor's. */
 export function formatEventDate(event, locale = 'bs') {
   if (!isRecord(event) || !validInstant(event.startsAt) || !validTimeZone(event.timeZone)) return '';
-  return new Intl.DateTimeFormat(locale === 'bs' ? 'bs-BA' : 'en-CA', {
+  if (locale === 'bs') {
+    // Numeric Bosnian format also works in browsers with incomplete bs locale data.
+    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
+      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+      hourCycle: 'h23', timeZone: event.timeZone,
+    }).formatToParts(new Date(event.startsAt)).map(part => [part.type, part.value]));
+    return parts.day + '.' + parts.month + '.' + parts.year + '. u ' + parts.hour + ':' + parts.minute;
+  }
+  return new Intl.DateTimeFormat('en-CA', {
     dateStyle: 'long',
     timeStyle: 'short',
     timeZone: event.timeZone,
