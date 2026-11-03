@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+*.tar.gz
+*.log
+.site-workflow/
+artifacts/

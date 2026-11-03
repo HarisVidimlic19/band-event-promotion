@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171916">
+  <meta name="description" content="Sto Posto Live Band — bosanski bend u Kanadi. Nastupi, ulaznice i informacije o bendu na jednom mjestu.">
+  <meta property="og:title" content="Sto Posto Live Band">
+  <meta property="og:description" content="Naša muzika. Vaša noć. Nastupi i ulaznice za Sto Posto Live Band.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sto-posto-live-band.hvidimlic1234.chatgpt.site/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Sto Posto Live Band — Naša muzika. Vaša noć.</title>
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/display.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Preskoči na sadržaj</a>
+  <header class="site-header">
+    <a href="#" class="brand" aria-label="Sto Posto Live Band, početna" data-label="homeLabel">
+      <img src="./assets/mark.svg" width="42" height="42" alt="">
+      <span>STO POSTO<small>LIVE BAND</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Glavna navigacija" data-label="navLabel">
+      <a href="#nastupi" data-i18n="navEvents">Nastupi & ulaznice</a>
+      <a href="#bend" data-i18n="navBand">O bendu</a>
+      <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <div class="language-switch" aria-label="Jezik / Language"><button type="button" data-lang="bs" aria-pressed="true">BS</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="header-cta" href="#nastupi"><span data-i18n="tickets">Ulaznice</span><span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvori meni" data-label="menuLabel"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Mobilna navigacija" data-label="mobileNavLabel"><a href="#nastupi" data-i18n="navEvents">Nastupi & ulaznice</a><a href="#bend" data-i18n="navBand">O bendu</a><a href="#kontakt" data-i18n="navContact">Kontakt</a></nav>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="little-star" aria-hidden="true">✳</span><span data-i18n="heroEyebrow">BOSANSKI BEND · KANADA</span></p>
+        <h1 id="hero-title">STO<br><span>POSTO</span><span class="hero-dot">.</span></h1>
+        <div class="hero-subline"><span class="line" aria-hidden="true"></span><p>LIVE BAND</p></div>
+        <p class="hero-tagline" data-i18n="heroTagline">Naša muzika. Vaša noć.</p>
+        <p class="hero-description" data-i18n="heroDescription">Tri muzičara. Jedna ljubav prema muzici koja nas spaja. Dobro došli u svijet Sto Posto Live Banda.</p>
+        <div class="hero-buttons"><a href="#nastupi" class="button button-copper"><span data-i18n="seeEvents">Pogledaj nastupe</span><span aria-hidden="true">↗</span></a><a href="#bend" class="text-link"><span data-i18n="meetBand">Upoznaj bend</span><span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="hero-visual">
+        <img id="hero-image" class="hero-art" src="./assets/hero-art.svg" width="900" height="1000" alt="" fetchpriority="high">
+        <div class="visual-top"><span data-i18n="visualTop">MUZIKA BEZ GRANICA</span><span aria-hidden="true">↗</span></div>
+        <div class="visual-bottom"><span>100<span class="percent">%</span></span><div><span data-i18n="visualLine1">NAŠ ZVUK.</span><span data-i18n="visualLine2">NAŠA PRIČA.</span></div></div>
+        <div class="vertical-caption" data-i18n="visualSide">STO POSTO MUZIKE. STO POSTO UŽIVO.</div>
+      </div>
+      <div class="hero-footer"><span data-i18n="heroFooter">ZA SVE KOJI MUZIKU OSJEĆAJU KAO SVOJU.</span><a href="#nastupi" aria-label="Idi na nastupe" data-label="goEvents"><span aria-hidden="true">↓</span></a><span>EST. IN THE MOMENT</span></div>
+    </section>
+    <div class="statement-strip" aria-hidden="true"><span>STO POSTO UŽIVO</span><b>✳</b><span>STO POSTO LIVE</span><b>✳</b><span>STO POSTO UŽIVO</span><b>✳</b><span>STO POSTO LIVE</span><b>✳</b></div>
+    <section id="nastupi" class="events-section section-pad" aria-labelledby="events-title">
+      <div class="section-heading"><div><p class="eyebrow section-kicker"><span>01 /</span><span data-i18n="eventsEyebrow">NASTUPI & ULAZNICE</span></p><h2 id="events-title" data-i18n="eventsTitle">Vaša sljedeća<br>noć za pamćenje.</h2></div><p class="section-description" data-i18n="eventsDescription">Svi naši naredni nastupi na jednom mjestu. Pronađite svoj grad, odaberite događaj i budite dio naše priče.</p></div>
+      <div class="event-toolbar"><div class="tabs" aria-label="Filter nastupa" data-label="filterLabel"><button type="button" data-filter="upcoming" class="active" aria-pressed="true" data-i18n="upcoming">Naredni nastupi</button><button type="button" data-filter="past" aria-pressed="false" data-i18n="past">Prethodni nastupi</button></div><span class="event-toolbar-note" data-i18n="officialSite">SLUŽBENA STRANICA BENDA</span></div>
+      <div id="events-list" aria-live="polite"></div>
+      <div id="events-empty" class="event-empty"><div class="empty-poster"><span class="poster-top">STO POSTO <span>LIVE BAND</span></span><span class="poster-main" data-i18n="posterHeadline">SLJEDEĆA<br>STANICA?</span><div class="poster-symbol" aria-hidden="true">✳</div><div class="poster-bottom"><span data-i18n="posterBottom">VIDIMO SE USKORO.</span><span>100%</span></div></div><div class="empty-copy"><p class="status-pill"><span></span><span id="event-status" data-i18n="datesSoon">NOVI DATUMI USKORO</span></p><h3 id="empty-title" data-i18n="emptyTitle">Najbolje noći<br>tek dolaze.</h3><p id="empty-description" data-i18n="emptyDescription">Pripremamo naredne susrete. Čim datumi budu potvrđeni, ovdje ćete pronaći gradove, lokacije i informacije o ulaznicama.</p><button type="button" class="button button-outline-dark" id="share-button"><span data-i18n="shareBand">Podijeli s rajom</span><span aria-hidden="true">↗</span></button><p id="share-status" class="inline-status" role="status"></p></div></div>
+      <div class="ticket-note"><span aria-hidden="true">◎</span><p data-i18n="ticketNote">Potvrđeni nastupi i službeni linkovi za ulaznice bit će objavljeni ovdje.</p></div>
+    </section>
+    <section id="bend" class="band-section section-pad" aria-labelledby="band-title"><div class="band-art" aria-hidden="true"><div class="band-art-ring"></div><span class="band-art-small">STO POSTO / LIVE BAND</span><div class="three">03<span>→</span></div><span class="band-art-bottom">JEDAN BEND.<br>STO POSTO.</span><span class="art-star">✳</span></div><div class="band-copy"><p class="eyebrow section-kicker"><span>02 /</span><span data-i18n="bandEyebrow">NAŠA PRIČA</span></p><h2 id="band-title" data-i18n="bandTitle">Tri muzičara.<br>Jedna energija.</h2><p class="band-intro" data-i18n="bandIntro">Daleko od kuće.<br>Blizu onoga što nas spaja.</p><p data-i18n="bandDescription">Sto Posto Live Band je bosanski bend u Kanadi. Muzika je naš način da okupimo ljude — da zapjevamo zajedno, podijelimo trenutak i osjetimo se kao kod kuće.</p><p data-i18n="bandDescription2">Naša priča nastavlja se u sastavu od tri muzičara. Vi donosite svoju raju. Mi donosimo sto posto.</p><div class="band-signature"><span>Sto Posto.</span><span data-i18n="bandSignature">S LJUBAVLJU PREMA MUZICI.</span></div></div></section>
+    <section class="faq-section section-pad" aria-labelledby="faq-title"><div><p class="eyebrow section-kicker"><span>03 /</span><span data-i18n="faqEyebrow">DOBRO JE ZNATI</span></p><h2 id="faq-title" data-i18n="faqTitle">Sve prije<br>prvog refrena.</h2></div><div class="faq-list"><details><summary><span data-i18n="faqQ1">Gdje mogu kupiti ulaznice?</span><span aria-hidden="true">+</span></summary><p data-i18n="faqA1">Kada prodaja počne, uz potvrđeni nastup pojavit će se dugme „Kupi ulaznice“. Ono vodi na službenu stranicu za kupovinu. Naredni datumi još nisu objavljeni.</p></details><details><summary><span data-i18n="faqQ2">Kako dobijam svoju ulaznicu?</span><span aria-hidden="true">+</span></summary><p data-i18n="faqA2">Na stranici za kupovinu bit će navedeni način plaćanja, dostava ulaznica i uslovi za odabrani događaj. Sačuvajte potvrdu kupovine i provjerite email koji unesete pri naručivanju.</p></details><details><summary><span data-i18n="faqQ3">Kako mogu kontaktirati bend?</span><span aria-hidden="true">+</span></summary><p data-i18n="faqA3">Informacije za kontakt nalaze se ispod. Dok pripremamo službene kanale, ovdje možete sastaviti i sačuvati upit za svoj događaj.</p></details></div></section>
+    <section id="kontakt" class="contact-section section-pad" aria-labelledby="contact-title"><div class="contact-copy"><p class="eyebrow section-kicker"><span>04 /</span><span data-i18n="contactEyebrow">HAJDE DA SE ČUJEMO</span></p><h2 id="contact-title" data-i18n="contactTitle">Vaš događaj.<br>Sto posto muzike.</h2><p data-i18n="contactDescription">Imate datum i mjesto na umu? Pripremite nekoliko detalja o svom događaju.</p><div id="contact-channels"></div><p class="contact-small" id="contact-availability" data-i18n="contactSoon">Službene informacije za kontakt objavljujemo uskoro.</p></div><form id="booking-form" class="booking-form"><h3 data-i18n="formTitle">Pripremite svoj upit</h3><p class="form-intro" id="form-intro" data-i18n="formIntro">Sačuvajte upit na svom uređaju. Ovaj obrazac trenutno ne šalje poruku bendu.</p><fieldset id="booking-fields" disabled><div class="form-grid"><label><span data-i18n="yourName">Vaše ime</span><input name="name" type="text" required maxlength="100" autocomplete="name"></label><label><span data-i18n="yourEmail">Email</span><input name="email" type="email" required maxlength="254" autocomplete="email"></label><label><span data-i18n="eventDate">Željeni datum</span><input name="date" type="date"></label><label><span data-i18n="eventCity">Grad / lokacija</span><input name="city" type="text" required maxlength="150" autocomplete="address-level2"></label></div><label><span data-i18n="yourMessage">Recite nam više</span><textarea name="message" rows="3" maxlength="2000" required></textarea></label><button type="submit" class="button button-copper"><span id="form-submit" data-i18n="saveInquiry">Preuzmi upit</span><span aria-hidden="true">↗</span></button><p id="form-status" class="inline-status" role="status"></p></fieldset><p class="form-privacy" data-i18n="formPrivacy">Vaši podaci ostaju u pregledniku dok ne preuzmete upit ili ga pošaljete kroz svoj email.</p></form></section>
+  </main>
+  <footer class="site-footer"><a href="#" class="brand"><img src="./assets/mark.svg" width="38" height="38" alt=""><span>STO POSTO<small>LIVE BAND</small></span></a><p data-i18n="footerLine">Naša muzika. Vaša noć.</p><div><span>© <span id="year">2026</span> Sto Posto Live Band</span><button type="button" id="privacy-button" data-i18n="privacy">Privatnost</button><a href="#" data-i18n="backTop">Na vrh ↑</a></div></footer>
+  <dialog id="privacy-dialog"><div class="dialog-heading"><h2 data-i18n="privacy">Privatnost</h2><button type="button" id="close-privacy" aria-label="Zatvori" data-label="closeLabel">×</button></div><p data-i18n="privacyText">Ova stranica ne koristi marketinške kolačiće niti analitiku. Vaš izbor jezika pohranjuje se samo u ovom pregledniku. Upit za događaj nije poslan niti sačuvan na našem serveru: možete ga preuzeti na svoj uređaj. Ako bude dostupan email kontakt, slanje se obavlja kroz vašu email aplikaciju. Vanjske stranice za ulaznice imaju vlastite uslove i pravila privatnosti. Hosting pružatelj može obrađivati tehničke podatke potrebne za isporuku i sigurnost stranice.</p></dialog>
+  <noscript><p class="noscript">Za promjenu jezika i prikaz nastupa uključite JavaScript. Novi datumi uskoro. / Enable JavaScript for language selection and event listings. New dates coming soon.</p></noscript>
+</body>
+</html>
