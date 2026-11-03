@@ -21,11 +21,61 @@ const fixture = (changes = {}) => ({
 const checkout = { provider: 'pretix', url: 'https://tickets.example.org/band/show/' };
 const hosts = ['tickets.example.org'];
 
-test('initial configuration contains no invented contact, image, or event data', () => {
+test('public configuration defaults to English and contains no unconfirmed sales or contacts', () => {
   assert.deepEqual(validateSiteConfig(SITE_CONFIG), { valid: true, errors: [] });
-  assert.deepEqual(SITE_CONFIG.events, []);
+  assert.equal(SITE_CONFIG.defaultLocale, 'en');
+  assert.equal(SITE_CONFIG.events.some((event) => getEventStatus(event) === 'on_sale'), false);
   assert.deepEqual(SITE_CONFIG.checkoutHosts, []);
   for (const key of ['email', 'phone', 'facebookUrl', 'instagramUrl', 'heroImage']) assert.equal(SITE_CONFIG[key], null);
+});
+
+test('Ticket Tailor uses the same hostname, status, and time purchase gates', () => {
+  const ticketTailorCheckout = { provider: 'ticket_tailor', url: 'https://www.tickettailor.com/events/test-fixture/123/' };
+  const approved = ['www.tickettailor.com'];
+  const event = fixture({ status: 'on_sale', checkout: ticketTailorCheckout });
+  assert.equal(validateEvent(event, approved).canPurchase, true);
+  assert.equal(validateEvent(event, []).canPurchase, false);
+  assert.equal(validateEvent(event, ['tickettailor.com']).canPurchase, false);
+  for (const status of ['announced', 'sold_out', 'cancelled', 'postponed']) {
+    assert.equal(validateEvent({ ...event, status }, approved).canPurchase, false, status);
+  }
+  assert.equal(validateEvent({ ...event, startsAt: '2000-01-01T12:00:00Z' }, approved).canPurchase, false);
+  assert.equal(validateEvent({ ...event, checkout: { ...ticketTailorCheckout, url: 'https://www.tickettailor.com.evil.test/events/1' } }, approved).valid, false);
+});
+
+test('optional event details require bilingual plain text and safe source links', () => {
+  const text = { bs: 'Potvrđena informacija.', en: 'Confirmed information.' };
+  for (const field of ['description', 'agePolicy', 'refundPolicy', 'ticketDelivery', 'priceNote']) {
+    assert.equal(validateEvent(fixture({ [field]: text }), hosts).valid, true, field);
+    for (const value of [null, 'Not localized', [], { en: 'English only' }, { bs: 'Tekst', en: 12 },
+      { bs: 'Tekst', en: { html: 'Text' } }, { bs: 'Tekst', en: '<script>alert(1)</script>' },
+      { bs: 'Tekst', en: 'Text\u0000hidden' }]) {
+      assert.equal(validateEvent(fixture({ [field]: value }), hosts).valid, false, field);
+    }
+  }
+  assert.equal(validateEvent(fixture({ sourceUrl: 'https://www.desavanja.ca/events/public-source' }), []).valid, true);
+  for (const sourceUrl of [null, {}, 'javascript:alert(1)', 'http://example.org/event', 'https://user:secret@example.org/event']) {
+    assert.equal(validateEvent(fixture({ sourceUrl }), hosts).valid, false);
+  }
+});
+
+test('CAD price metadata is optional and does not prove a total or authorize a purchase', () => {
+  assert.equal(validateEvent(fixture({ startsAt: '2000-01-01T12:00:00Z' }), hosts).valid, true);
+  for (const amount of [0, 30, 30.50]) {
+    for (const includesFees of [true, false]) {
+      const event = fixture({ price: { amount, currency: 'CAD', includesFees } });
+      assert.equal(validateEvent(event, hosts).valid, true);
+      assert.equal(validateEvent(event, hosts).canPurchase, false);
+    }
+  }
+  const price = { amount: 30, currency: 'CAD', includesFees: false };
+  for (const value of [null, [], '30', { ...price, amount: -1 }, { ...price, amount: Infinity },
+    { ...price, amount: NaN }, { ...price, amount: '30' }, { ...price, currency: 'USD' },
+    { ...price, includesFees: 'true' }, { amount: 30, currency: 'CAD' }]) {
+    assert.equal(validateEvent(fixture({ price: value }), hosts).valid, false);
+  }
+  assert.equal(validateEvent(fixture({ status: 'on_sale', price }), hosts).canPurchase, false);
+  assert.equal(validateEvent(fixture({ sourceUrl: checkout.url, price }), hosts).canPurchase, false);
 });
 
 test('checkout links require explicit HTTPS hostname approval', () => {
@@ -130,7 +180,7 @@ test('date formatting uses venue timezone, not browser timezone', () => {
   const bosnian = formatEventDate(event, 'bs');
   assert.match(english, /June 15, 2030/);
   assert.match(english, /9:00|21:00/);
-  assert.match(bosnian, /15/);
+  assert.equal(bosnian, '15.06.2030. u 21:00');
   assert.notEqual(english, bosnian);
   assert.equal(formatEventDate(fixture({ startsAt: 'invalid' }), 'en'), '');
 });
