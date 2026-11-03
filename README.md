@@ -18,7 +18,7 @@ The three supplied photos are unaltered copies. CSS controls their display crop;
 
 English loads by default. A visitor can explicitly choose Bosnian and retain that choice in their browser. The new preference key does not import the old site's automatically saved Bosnian default. Both initial HTML and JavaScript default to English.
 
-The archive contains three sourced **past event listings**, each with its original announcement. No future event, ticket price, payment account, band contact address or official Facebook URL has been invented. The possible November 20 event and Facebook candidate are recorded only in the research notes until confirmed.
+The band's Facebook link is the exact URL supplied by the user: https://www.facebook.com/share/1G5UrS1Wd6/ . Its page contents and canonical destination could not be independently retrieved. The previously proposed Facebook page and November 20 event were rejected by the user and are excluded. Attribution of the three same-name archive listings has also been withdrawn; `events` is empty until the band confirms its own events. The correction and source trail are recorded in [docs/RESEARCH.md](docs/RESEARCH.md).
 
 There are **no active ticket sales**. Event detail dialogs support venue-local dates, approved prices and fee wording, age restrictions, refund terms, ticket delivery and a direct checkout button. Purchase links appear only for a valid future `on_sale` event on an exact approved hostname, and are rechecked when clicked. Ticket Tailor, pretix and Eventbrite checkout links are supported. The provider owns quantity selection, inventory, payment, confirmation and admission tickets.
 
@@ -48,7 +48,7 @@ The website can also be served on the MiniPC behind HTTPS. Hosted ticket links d
 
 ## Before opening sales
 
-Confirm the band's official social URL and booking contact. Approve the first event's date/time, venue, ticket types, capacity, price/fees, age policy, refund terms and delivery instructions. Create the ticketing account and payment connection, test payment and QR admission, then supply the actual public event checkout link. Follow [the ticketing guide](docs/TICKETING.md).
+Confirm the band's booking contact. Approve the first event's date/time, venue, ticket types, capacity, price/fees, age policy, refund terms and delivery instructions. Create the ticketing account and payment connection, test payment and QR admission, then supply the actual public event checkout link. Follow [the ticketing guide](docs/TICKETING.md).
 
 Never commit credentials, attendee lists, ticket secrets, bank records or order exports. `dist/data.js` is public to every visitor. Ticketing and payment providers have their own fees; the free static website does not remove card-processing or ticket-service charges.
 

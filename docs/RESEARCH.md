@@ -1,10 +1,14 @@
 # Research and image provenance
 
-Checked: **November 2, 2026 (America/Toronto)**.
+Initial research checked: **November 2, 2026 (America/Toronto)**. The user correction below supersedes the initial attribution.
 
-## Published event archive
+## Official social link supplied by the user
 
-The archive is based on public listings from the event organizer/ticketing site Desavanja.ca. These sources document advertised appearances; they are not independent confirmation that every performance took place. All three dates are past events, and their listings currently say tickets are not on sale.
+[Facebook](https://www.facebook.com/share/1G5UrS1Wd6/) is the official band link **by the user's attribution**. It is used exactly as supplied. Public web retrieval was unavailable and exact-link searches produced no matching indexed result, so the page contents and canonical destination remain unknown. No profile ID, member names, contact details or event history have been inferred from the share URL.
+
+## Withdrawn archive attribution
+
+The following Desavanja.ca listings use the same band name, but their connection to the user's band has not been established. Their attribution to this lineup is withdrawn and all three entries have been removed from the website's event data. The URLs below are retained only as a correction trail; they must not be used as this band's history unless the user confirms the relationship.
 
 | Archive entry | Publicly listed details | Primary event source |
 | --- | --- | --- |
@@ -14,10 +18,10 @@ The archive is based on public listings from the event organizer/ticketing site 
 
 The phone number in the Desavanja.ca footer belongs to the source website's contact section; it has not been verified as the band's booking contact and must not be reused as one.
 
-## Unconfirmed leads
+## Excluded matches
 
-- **Facebook:** [candidate page](https://www.facebook.com/profile.php?id=61566002559002). The [StayHappening listing below](https://stayhappening.com/e/bosansko-sijelo-dan-dr%C5%BEavnosti-bih-E2IT00BR7ME) names its host “Sto Posto Live Band” and links the host avatar to `https://graph.facebook.com/61566002559002/picture?height=512`. This is indirect evidence only. Direct Facebook retrieval was unavailable; the page's ownership, current content and official status have **not** been verified. Do not publish it as an official band link without confirmation.
-- **Possible upcoming event:** [Bosansko Sijelo — Dan Državnosti BiH](https://stayhappening.com/e/bosansko-sijelo-dan-dr%C5%BEavnosti-bih-E2IT00BR7ME), listed by the aggregator for November 20, 2026, 8 p.m., at Vic Johnston Community Centre, 335 Church St, Mississauga. No organizer-confirmed ticket price or purchase URL has been verified. Keep this out of active ticket sales until the band confirms the details.
+- **Rejected Facebook candidate:** [profile ID 61566002559002](https://www.facebook.com/profile.php?id=61566002559002) is **excluded by user correction**. The earlier association came indirectly from an aggregator's host avatar, not verified band ownership. It must not be used as the band's official link or as a source of band facts.
+- **Rejected November 20 event:** [Bosansko Sijelo — Dan Državnosti BiH](https://stayhappening.com/e/bosansko-sijelo-dan-dr%C5%BEavnosti-bih-E2IT00BR7ME), advertised for November 20, 2026 at Vic Johnston Community Centre, is **excluded by user correction**. It is not this band's confirmed upcoming event and must not be added to its schedule or ticket sales.
 - No member names, founding year or direct booking contact have been established by this research. Do not use information from `stopostobend.com` (a Serbian band) or `sto-posto.com` (an Osijek, Croatia band); these are different groups.
 
 ## User-supplied photographs

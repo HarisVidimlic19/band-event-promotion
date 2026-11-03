@@ -4,7 +4,7 @@ The static website presents confirmed events and links to the organizer's public
 
 ## Current state
 
-`dist/data.js` exports `SITE_CONFIG`. English is the default language, with a Bosnian translation. Publicly sourced past listings may appear in the archive; they do not establish future dates, ticket prices, or availability. No future ticket sale is configured. `checkoutHosts` is empty, and public contact/social settings remain `null` until supplied. Site photos are managed in the page markup; `heroImage` remains `null`.
+`dist/data.js` exports `SITE_CONFIG`. English is the default language, with a Bosnian translation. The event list is empty: same-name historical listings were removed because their connection to this band has not been confirmed. No ticket sale is configured. `checkoutHosts` is empty. The Facebook URL is the exact link supplied by the user; other contact/social settings remain `null` until supplied. Site photos are managed in the page markup; `heroImage` remains `null`.
 
 Keep a clear bilingual empty state while there are no upcoming events. Do not add a nonfunctional purchase button, fake availability count, placeholder checkout link, or admission QR code. A past public listing should link to its source and must not be offered for purchase.
 
@@ -23,6 +23,21 @@ Official references, checked November 2, 2026:
 - [Stripe Canadian pricing](https://stripe.com/en-ca/pricing), [Payment Links](https://docs.stripe.com/payment-links), and [payment fulfillment](https://docs.stripe.com/checkout/fulfillment).
 - [pretix Hosted pricing](https://pretix.eu/about/en/pricing/).
 
+## Reference site: Desavanja.ca
+
+Inspected the [reference event](https://www.desavanja.ca/events/docek-nove-godine-2027-denis-rapkic-mende) on November 2, 2026 (America/Toronto).
+
+- **Website and ticket platform: Wix and Wix Events.** The rendered document identifies its generator as `Wix.com Website Builder`, and the event page includes a Wix Events map/widget. Ticket selection and checkout stay under the site's own domain.
+- Observed buyer flow: choose quantities by ticket type → review subtotal/service fee/total → first name, last name and email → Payment. A coupon-code control and a roughly 20-minute reservation timer appear at checkout.
+- One adult ticket displayed $150.00 plus $3.75 service fee, totaling $153.75. Child tickets and food add-ons were separate selectable types. These are reference-site prices, not this band's prices.
+- The 2.5% surcharge matches Wix's documented ticket service fee. It is separate from the processor's charge. Paid ticket sales require a Wix plan that supports payments.
+- **Payment processor unverified:** no buyer information was submitted, and the Payment stage was not reached. Do not claim this organizer uses Stripe, Wix Payments or PayPal, or that any particular wallet is enabled.
+- Wix supports confirmation emails with PDF tickets and QR-based admission. This is documented platform functionality; no completed order or delivered ticket was inspected.
+
+This research does not change the recommendation to keep the custom Cloudflare website and connect a hosted Ticket Tailor checkout for the first event. Moving the entire website to Wix would add a paid site plan; simply matching its ticket-selection flow does not require that move.
+
+Primary references: [Wix ticket fees](https://support.wix.com/en/article/wix-events-about-wix-ticket-service-fees), [ticket creation/delivery](https://support.wix.com/en/article/creating-tickets-for-your-event), [Wix Events](https://support.wix.com/en/article/wix-events), [payment setup](https://support.wix.com/en/article/wix-events-setting-up-a-payment-method).
+
 ## Public configuration
 
 | Field | Type and meaning |
@@ -34,7 +49,7 @@ Official references, checked November 2, 2026:
 | `heroImage` | Image in `assets/`, or a public HTTPS image URL, or `null` |
 | `heroImageAlt` | `{ bs, en }`; both descriptions required when a photo is present |
 | `checkoutHosts` | Exact approved domain names without schemes, paths, ports, or wildcards |
-| `events` | Array of confirmed events or sourced historical listings; `[]` when none are available |
+| `events` | Array of confirmed events or historical listings attributed to this band; `[]` when none are available |
 
 Use a licensed band photo and meaningful descriptions in both languages. Public configuration is downloaded by every visitor. Never put payment keys, bank credentials, purchaser data, order exports, or ticket secrets in it.
 
@@ -88,7 +103,7 @@ Render localized text with text nodes/textContent, not unsanitized HTML. Use `va
 4. Add the approved exact checkout hostname, event data, and public event URL. Run the validation tests and inspect both languages on a phone.
 5. Verify the venue's check-in connectivity/fallback and access for door staff. For self-hosted pretix, also verify HTTPS, backups, email delivery, and updates.
 
-The frontend needs only approved event content and the provider's public event URL. No Stripe secret key, webhook secret, or Ticket Tailor API credential is needed for these checkout links. Until the real event and public checkout URL exist, the site can show its event-detail interface and past archive, but sales remain disabled.
+The frontend needs only approved event content and the provider's public event URL. No Stripe secret key, webhook secret, or Ticket Tailor API credential is needed for these checkout links. Until the real event and public checkout URL exist, the site shows an honest empty state and sales remain disabled.
 
 For manual Interac e-Transfer, the ticketing backend must hold the order pending until the organizer verifies the actual bank transaction. A website button, screenshot, or return URL is not payment verification. The marketing site does not need to store banking details.
 

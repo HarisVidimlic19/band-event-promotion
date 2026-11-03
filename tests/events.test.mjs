@@ -26,7 +26,9 @@ test('public configuration defaults to English and contains no unconfirmed sales
   assert.equal(SITE_CONFIG.defaultLocale, 'en');
   assert.equal(SITE_CONFIG.events.some((event) => getEventStatus(event) === 'on_sale'), false);
   assert.deepEqual(SITE_CONFIG.checkoutHosts, []);
-  for (const key of ['email', 'phone', 'facebookUrl', 'instagramUrl', 'heroImage']) assert.equal(SITE_CONFIG[key], null);
+  assert.deepEqual(SITE_CONFIG.events, []);
+  assert.equal(SITE_CONFIG.facebookUrl, 'https://www.facebook.com/share/1G5UrS1Wd6/');
+  for (const key of ['email', 'phone', 'instagramUrl', 'heroImage']) assert.equal(SITE_CONFIG[key], null);
 });
 
 test('Ticket Tailor uses the same hostname, status, and time purchase gates', () => {
