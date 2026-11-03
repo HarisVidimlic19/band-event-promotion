@@ -40,6 +40,8 @@ npm run check
 
 ## Hosting and ownership
 
+For deployment to your own Cloudflare account, use the checked-in `wrangler.jsonc` and [Cloudflare deployment guide](docs/CLOUDFLARE.md). It serves `dist/` as static assets on Workers. Select `feature/sto-posto-website` as the production branch while the website pull request is unmerged; `main` does not yet contain the site. A Cloudflare deployment has not yet been completed or verified.
+
 The entire `dist/` directory can be hosted on the MiniPC behind an HTTPS reverse proxy/tunnel, or on static hosting. It does not require the MiniPC while deployed on Sites. `.openai/hosting.json` preserves the Sites project ID for subsequent updates; keep it unchanged for that Site. The private GitHub repository holds the same source for editing and portability.
 
 Ticketing/payment services have their own fees and operating requirements. A self-hosted pretix backend with manually verified Interac transfers can be connected through a public HTTPS ticket URL later. The static website does not automatically verify bank deposits.

@@ -7,3 +7,6 @@ node_modules/
 *.log
 .site-workflow/
 artifacts/
+.wrangler/
+.dev.vars
+.dev.vars.*
