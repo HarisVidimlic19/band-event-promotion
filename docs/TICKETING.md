@@ -8,6 +8,8 @@ The static website presents confirmed events and links to the organizer's public
 
 Keep a clear bilingual empty state while there are no upcoming events. Do not add a nonfunctional purchase button, fake availability count, placeholder checkout link, or admission QR code. A past public listing should link to its source and must not be offered for purchase.
 
+See [TICKET-TAILOR-SETUP.md](TICKET-TAILOR-SETUP.md) for the step-by-step Canadian organizer setup and [EVENT-WORKSHEET.md](EVENT-WORKSHEET.md) for the remaining event decisions. The New Year 2027 teaser is confirmed, but ticket sales remain closed until the actual event details and checkout are supplied.
+
 ## Recommended first checkout
 
 Use **Ticket Tailor with Stripe** and link to its hosted checkout. Buyers choose ticket types and quantities there, enter their details, and pay. Ticket Tailor sends the ticket confirmation and QR code; its check-in app handles admission. Keep quantity selection at checkout so the marketing site does not maintain a separate cart or inventory count.

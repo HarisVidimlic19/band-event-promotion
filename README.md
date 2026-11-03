@@ -10,7 +10,9 @@ An English-first, Bosnian/English band website with real performance photography
 - Layout: `dist/styles.css`.
 - Original supplied performance photos: `dist/assets/band/`.
 - Research and photo provenance: [docs/RESEARCH.md](docs/RESEARCH.md).
-- Ticketing integration and launch steps: [docs/TICKETING.md](docs/TICKETING.md).
+- Ticketing integration: [docs/TICKETING.md](docs/TICKETING.md).
+- Organizer setup: [docs/TICKET-TAILOR-SETUP.md](docs/TICKET-TAILOR-SETUP.md).
+- Remaining event details: [docs/EVENT-WORKSHEET.md](docs/EVENT-WORKSHEET.md).
 
 The three supplied photos are unaltered copies. CSS controls their display crop; no synthetic people, AI photo generation or face changes are used. Member names have not been inferred. The Illustrator banner is deferred; existing `social-card.svg` / `social-card.png` are the earlier interim graphic and can be replaced in that phase. Preserve the photos as source material for the banner.
 
@@ -20,7 +22,7 @@ English loads by default. A visitor can explicitly choose Bosnian and retain tha
 
 The band's Facebook link is the exact URL supplied by the user: https://www.facebook.com/share/1G5UrS1Wd6/ . Its page contents and canonical destination could not be independently retrieved. The previously proposed Facebook page and November 20 event were rejected by the user and are excluded. Attribution of the three same-name archive listings has also been withdrawn; `events` is empty until the band confirms its own events. The correction and source trail are recorded in [docs/RESEARCH.md](docs/RESEARCH.md).
 
-There are **no active ticket sales**. Event detail dialogs support venue-local dates, approved prices and fee wording, age restrictions, refund terms, ticket delivery and a direct checkout button. Purchase links appear only for a valid future `on_sale` event on an exact approved hostname, and are rechecked when clicked. Ticket Tailor, pretix and Eventbrite checkout links are supported. The provider owns quantity selection, inventory, payment, confirmation and admission tickets.
+The band’s New Year celebration welcoming 2027 is announced in English and Bosnian, with the official Facebook link for updates. Venue, times and ticket details remain forthcoming. There are **no active ticket sales**. Event detail dialogs support venue-local dates, approved prices and fee wording, age restrictions, refund terms, ticket delivery and a direct checkout button. Purchase links appear only for a valid future `on_sale` event on an exact approved hostname, and are rechecked when clicked. Ticket Tailor, pretix and Eventbrite checkout links are supported. The provider owns quantity selection, inventory, payment, confirmation and admission tickets.
 
 The previous enquiry-download form has been removed. Contact information renders once confirmed public contacts are configured. No message is claimed to have been sent, and this site collects no payment details.
 

@@ -19,6 +19,13 @@ Temporary browser QA pages/scripts were removed before final checks and packagin
 
 The user supplied the band’s Facebook link and rejected the earlier candidate. The exact supplied link is configured; all unverified same-name archive entries were removed, and archive navigation is hidden while no historical events are confirmed. The original redesign checks above describe the previous revision; the current public configuration contains no events.
 
+## New Year announcement and launch guides
+
+- Added the user-confirmed New Year celebration welcoming 2027 in English and Bosnian. English reads “Welcome 2027” to avoid implying December 31, 2027; the planning worksheet explains December 31, 2026.
+- Desktop and 390/320 px iframe checks confirm the announcement, correct Facebook update link and closed-sales wording. No horizontal overflow was measured in either language. No venue, time, price or checkout URL was invented.
+- `npm run check` and all 13 existing tests pass after the changes. No payment account or live event has been connected.
+- Added an owner setup guide, an event-details worksheet and an Illustrator poster guide. The separate poster kit uses unchanged original photo bytes inside editable SVG clipping paths, not regenerated faces.
+
 ## Limits
 
 No live event checkout, payment account, inventory, email-ticket delivery, QR admission, refunds, or contact email is configured or end-to-end tested. The Facebook destination is user-supplied, but Facebook’s page content could not be independently retrieved. The default site still accepts no money. Hosted ticketing setup and a real event link are required before opening sales.
