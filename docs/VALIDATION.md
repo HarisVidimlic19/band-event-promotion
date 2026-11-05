@@ -45,3 +45,17 @@ No live event checkout, payment account, inventory, email-ticket delivery, QR ad
 
 The screenshot is from the local preview. A successful Sites deployment is verified by its native deployment result; this does not verify deployment to the owner's independent Cloudflare account.
 
+
+## Ticket styling and venue update — 5 November 2026
+
+- Existing generated Ticket Tailor block confirmed byte-for-byte unchanged.
+- Desktop live box office loads; Nova Godina 2027 opens ticket selection within the iframe. No quantities selected, orders submitted or payments made.
+- Published ticket names observed: General Admission, Child - ages 6 - 12, Child - ages 5 and under. Prices and fees remain provider-owned.
+- Google Maps renders the Oakville Legacy marker; address and external directions link remain available outside the iframe.
+- 390px and 320px outer viewport fixtures: document client/scroll widths matched at 375/375 and 305/305, with no horizontal page overflow. The 390px fixture's ticket-selector iframe measured 309/309. These are responsive layout checks, not physical-device tests.
+- Corrected the featured-date strip's mobile layout after visual QA.
+- EN → BS preserves the same Ticket Tailor iframe ID and translates the venue/help text; restored English for preview.
+- A script-free fixture retains both the vendor fallback and permanent ticket-shop link.
+- An expired-date fixture hides both New Year's Eve features while retaining the live box office.
+- Temporary QA fixture files removed before publication.
+- Existing PR Cloudflare preview previously reported a build failure. Local checks are separate from Cloudflare deployment status.

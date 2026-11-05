@@ -16,13 +16,15 @@ for (const [,anchor] of html.matchAll(/href="#([^"]+)"/g)) {
   if (!ids.includes(anchor)) throw new Error(`Missing anchor: ${anchor}`);
 }
 const js = await readFile(new URL('../dist/app.js', import.meta.url), 'utf8');
-for (const [,key] of html.matchAll(/data-(?:i18n|label|alt)="([^"]+)"/g)) {
+for (const [,key] of html.matchAll(/data-(?:i18n|label|alt|title)="([^"]+)"/g)) {
   if (!(new RegExp(`\\b${key}:`)).test(js)) throw new Error(`Missing translation key: ${key}`);
 }
 await access(new URL('../dist/assets/social-card.png', import.meta.url));
 const widgetScripts = [...html.matchAll(/<script\b[^>]*src="https:\/\/cdn\.tickettailor\.com\/js\/widgets\/min\/widget\.js"[^>]*>/g)];
 if (widgetScripts.length !== 1) throw new Error('Expected one Ticket Tailor box-office script.');
-const widgetUrl = new URL(widgetScripts[0][0].match(/data-url="([^"]+)"/)[1].replaceAll('&amp;', '&'));
+const widgetDataUrl = widgetScripts[0][0].match(/data-url="([^"]+)"/);
+if (!widgetDataUrl) throw new Error('Ticket Tailor widget is missing its data-url attribute.');
+const widgetUrl = new URL(widgetDataUrl[1].replaceAll('&amp;', '&'));
 if (widgetUrl.origin !== 'https://www.tickettailor.com' || widgetUrl.pathname !== '/all-tickets/stopostoliveband/') {
   throw new Error('Widget must point to the approved Sto Posto box office.');
 }

@@ -21,6 +21,18 @@ The widget preserves the supplied search/date/sort options; Ticket Tailor contro
 - Do not add Stripe Products, payment keys, ticket inventories or custom payment forms to this repository.
 - The legacy `events` and `checkoutHosts` fields in `dist/data.js` are not used to render this box office.
 
+## Appearance and venue information
+
+The website frames the untouched widget in a cream, dark-green and gold ticket section. The direct Ticket Tailor link remains underneath as a fallback. Internal checkout colours belong to Ticket Tailor and cannot be overridden from this website's stylesheet.
+
+For matching checkout colours, use **Promote → Website embed code → Edit widget colors**. Suggested palette: background `#FFFFFF`, text `#171A15`, primary button `#26301E`, button text `#FFFFFF`, accent `#E7C56A`. Inspect contrast and the preview before saving. If saving produces a different snippet, replace the entire supplied widget block in `dist/index.html`; do not invent query parameters. No paid custom-domain or white-label feature is required for the website layout.
+
+The venue card is explicitly for **New Year's Eve 2027, 31 December 2026**. It shows Oakville Legacy Banquet & Convention Centre at 1173 North Service Rd E, Oakville, ON L6H 1A7, with a responsive Google Maps iframe and a separate directions link. The map URL comes from the venue's [official contact page](https://oakvillelegacy.com/index.php/contact-us/); it uses Google's shared-map embed and needs no API key. Google attribution is retained. The privacy notice describes the map's third-party loading.
+
+The featured date strip and venue card have `data-event-end="2027-01-01T02:00:00-05:00"`; JavaScript hides these specific features after the event ends while leaving the all-events box office available. If the organiser changes the date, venue or end time, update both HTML features and their English/Bosnian translations. This featured content is manually maintained and does not sync from Ticket Tailor. With JavaScript disabled, the clearly dated venue remains visible.
+
+Ticket guidance covers fees/total review, confirmation emails, QR codes, child age bands and event-specific refund policies. Prices, fees, ticket age bands and availability remain in Ticket Tailor to avoid stale duplicated sales information. The FAQ's **Find my tickets** link opens Ticket Tailor's official ticket-retrieval page.
+
 ## Domain
 
 The intended public website is **https://stopostoliveband.ca/**. Canonical and Open Graph metadata use that hostname. This metadata change does not create DNS records or attach the domain to Cloudflare.
