@@ -68,21 +68,20 @@ A private GitHub repository does not make the deployed website private. The `wor
 
 ## Hostname-dependent metadata
 
-After Cloudflare assigns the real hostname, update the absolute `og:image` URL in `dist/index.html` to the deployed origin followed by `/assets/social-card.png`. It must not continue pointing to the old `chatgpt.site` deployment. Use the final production hostname again if a custom domain is connected later.
+The intended production domain is **stopostoliveband.ca**. Canonical, Open Graph URL and image metadata now use it. Attach that domain to the existing Worker via **Domains** (or **Settings → Domains & Routes → Add → Custom Domain**), with the zone active in Cloudflare. This source change does not configure DNS or certificates. Confirm HTTPS works on the custom domain before promoting it.
 
 The CSS, JavaScript, fonts, and artwork use relative paths and do not need hostname changes. Language selection uses browser storage. The Facebook link is supplied by the user; email and phone remain unpublished until supplied; hosting it on Cloudflare does not create a mail or payment backend.
 
 ## Verify the production test
 
 - Open the root page over HTTPS and check that artwork and local fonts load.
-- Switch Bosnian/English, test the mobile menu, and inspect both upcoming and past event tabs.
-- Confirm there are no ticket purchase buttons while the event list is empty.
-- With no verified historical events, confirm the Past listings tab and archive shortcut are hidden.
+- Switch Bosnian/English and test the mobile menu. Confirm language switching preserves the active Ticket Tailor iframe.
+- Confirm the Ticket Tailor box office loads and opens the intended event. The permanent ticket-shop link must remain available if the widget fails.
 - Open and close a photo, then check the ticket FAQ.
 - Open `/assets/social-card.png` on the new hostname and verify the Open Graph image uses that same production origin.
 - Check the browser console and network panel for missing assets or references to the previous host.
 
-The website still has no live events, payment processing, admission-ticket issuance, or a published email/phone contact. Add verified content and connect the ticket provider using [TICKETING.md](TICKETING.md) when those details are available.
+The embedded Ticket Tailor box office supplies live listings and checkout; Ticket Tailor/Stripe handle payment and ticket delivery. The website itself has no payment backend. See [BOX-OFFICE.md](BOX-OFFICE.md) for future events and domain setup.
 
 ## Pages alternative
 
@@ -96,3 +95,4 @@ If an existing Cloudflare Pages project is preferred, it can serve the same `dis
 - [Static Assets configuration](https://developers.cloudflare.com/workers/static-assets/binding/)
 - [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
 - [Pages static HTML alternative](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)
+

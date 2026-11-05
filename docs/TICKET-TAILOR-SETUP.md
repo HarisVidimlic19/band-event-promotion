@@ -1,5 +1,7 @@
 # Sto Posto: Ticket Tailor + Stripe setup
 
+> **Current integration:** the website now embeds the supplied all-events Ticket Tailor box office. Manage future events in Ticket Tailor. See [BOX-OFFICE.md](BOX-OFFICE.md) for the current workflow. The original setup/local-event instructions below are historical and do not describe the active website.
+
 Researched November 2, 2026 (America/Toronto), from official Ticket Tailor and Stripe documentation. This is a setup guide, not confirmation that accounts, an event, or live payments have been configured.
 
 ## Recommended arrangement
@@ -92,4 +94,5 @@ Prepaid credits can reduce usage costs but need an upfront purchase. Leave paid 
 | Tickets | General admission vs assigned seats, types, prices, capacity and sales window |
 | Buyer terms | Fee/tax display, age policy, refund terms and ticket-delivery instructions |
 | Integration | Published Ticket Tailor event URL; successful checks of checkout, delivery and door scanning |
+
 

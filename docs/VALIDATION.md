@@ -1,5 +1,18 @@
 # Validation
 
+## Ticket Tailor box-office integration — November 4, 2026
+
+- Generated all-events snippet preserved, including CDN origin, referral tag and widget settings.
+- Browser loaded the live Nova Godina 2027 listing and opened adult, child and free-under-five ticket options. No ticket quantities, orders or payments were submitted.
+- Bosnian language switch preserved the same iframe ID and active event checkout.
+- 390px frame (375px content viewport with scrollbar) rendered without horizontal overflow.
+- A script-free copy retained the persistent direct ticket-shop link and provider fallback.
+- Console inspection found no site application errors; browser-extension metadata messages were unrelated to this site.
+- Temporary QA pages removed before final checks. Existing 13 unit tests cover retained event helpers; widget acceptance was checked in the browser.
+- Cloudflare deployment, custom-domain DNS/certificate and live Stripe payments/payouts were not verified by these checks.
+
+Earlier validation notes below describe the pre-widget website.
+
 Checked November 2, 2026 (America/Toronto), against the redesigned static site.
 
 - `npm run check`: JavaScript syntax, public configuration, local assets, anchor targets, duplicate element IDs, translation/alt hooks, initial language and temporary-fixture exclusion.
@@ -31,3 +44,4 @@ The user supplied the band’s Facebook link and rejected the earlier candidate.
 No live event checkout, payment account, inventory, email-ticket delivery, QR admission, refunds, or contact email is configured or end-to-end tested. The Facebook destination is user-supplied, but Facebook’s page content could not be independently retrieved. The default site still accepts no money. Hosted ticketing setup and a real event link are required before opening sales.
 
 The screenshot is from the local preview. A successful Sites deployment is verified by its native deployment result; this does not verify deployment to the owner's independent Cloudflare account.
+

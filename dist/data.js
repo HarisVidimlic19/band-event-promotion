@@ -10,7 +10,9 @@ export const SITE_CONFIG = {
   heroImage: null,
   heroImageAlt: { bs: '', en: '' },
   checkoutHosts: [],
-  // Same-name archive listings are withheld: their connection to this band is unconfirmed.
-  // Add events only after the band confirms attribution, details and any official checkout.
+  // Legacy local-event fields are retained for validation/backward compatibility.
+  // The live box-office widget in index.html owns listings, prices and availability.
+  // Publish future events in Ticket Tailor; do not duplicate them in this array.
   events: []
 };
+
