@@ -1,5 +1,7 @@
 # Ticketing integration
 
+> **Current integration:** the website now embeds the supplied all-events Ticket Tailor box office. Manage future events in Ticket Tailor. See [BOX-OFFICE.md](BOX-OFFICE.md) for the current workflow. The original setup/local-event instructions below are historical and do not describe the active website.
+
 The static website presents confirmed events and links to the organizer's public checkout. Ticket Tailor, pretix, or Eventbrite handles inventory, payment, confirmation email, and admission tickets. The marketing site does not confirm payments or issue tickets.
 
 ## Current state
@@ -112,3 +114,4 @@ For manual Interac e-Transfer, the ticketing backend must hold the order pending
 Start with direct checkout links. A pretix widget can be added later after the event exists and its shop is active: https://docs.pretix.eu/guides/widget/
 
 Self-hosted pretix payment configuration belongs in its backend, not this repository: https://docs.pretix.eu/guides/payment/stripe/
+
