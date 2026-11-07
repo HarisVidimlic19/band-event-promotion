@@ -10,7 +10,7 @@ The website uses the organiser-supplied **all-events Ticket Tailor widget** for 
 4. Publish the event and make it visible in the box office.
 5. Open the band's website and confirm it appears. No website code edit is needed for ordinary future events.
 
-The widget preserves the supplied search/date/sort options; Ticket Tailor controls when these are displayed. Its colours and layout are managed in Ticket Tailor's widget/box-office design settings. If a different generated snippet is needed, replace the complete widget block and keep the separate fallback link pointing to this box office.
+The widget preserves the supplied search/date/sort options; Ticket Tailor controls when these are displayed. Its colours and layout are managed in Ticket Tailor's widget/box-office design settings. If a different generated snippet is needed, replace the complete widget block and keep the separate fallback link pointing to this box office. Retain `rel="noopener noreferrer"` on both links that open the ticket shop in a new tab.
 
 ## Checkout and fallback
 

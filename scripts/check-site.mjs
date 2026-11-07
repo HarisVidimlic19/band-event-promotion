@@ -20,18 +20,40 @@ for (const [,key] of html.matchAll(/data-(?:i18n|label|alt|title)="([^"]+)"/g)) 
   if (!(new RegExp(`\\b${key}:`)).test(js)) throw new Error(`Missing translation key: ${key}`);
 }
 await access(new URL('../dist/assets/social-card.png', import.meta.url));
-const widgetScripts = [...html.matchAll(/<script\b[^>]*src="https:\/\/cdn\.tickettailor\.com\/js\/widgets\/min\/widget\.js"[^>]*>/g)];
+
+function readAttributes(tag) {
+  const attributes = new Map();
+  const pattern = /\s+([^\s"'=<>/]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g;
+  for (const [, name, doubleQuoted, singleQuoted, unquoted] of tag.matchAll(pattern)) {
+    const key = name.toLowerCase();
+    if (!attributes.has(key)) attributes.set(key, doubleQuoted ?? singleQuoted ?? unquoted);
+  }
+  return attributes;
+}
+
+const widgetSource = 'https://cdn.tickettailor.com/js/widgets/min/widget.js';
+const widgetScripts = [...html.matchAll(/<script\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi)]
+  .map(([tag]) => readAttributes(tag))
+  .filter(attributes => attributes.get('src') === widgetSource);
 if (widgetScripts.length !== 1) throw new Error('Expected one Ticket Tailor box-office script.');
-const widgetDataUrl = widgetScripts[0][0].match(/data-url="([^"]+)"/);
-if (!widgetDataUrl) throw new Error('Ticket Tailor widget is missing its data-url attribute.');
-const widgetUrl = new URL(widgetDataUrl[1].replaceAll('&amp;', '&'));
+const widgetDataUrl = widgetScripts[0].get('data-url');
+if (!widgetDataUrl?.trim()) throw new Error('Ticket Tailor widget is missing its data-url attribute.');
+const widgetUrl = new URL(widgetDataUrl.replaceAll('&amp;', '&'));
 if (widgetUrl.origin !== 'https://www.tickettailor.com' || widgetUrl.pathname !== '/all-tickets/stopostoliveband/') {
   throw new Error('Widget must point to the approved Sto Posto box office.');
 }
-const fallback = html.match(/<a\b[^>]*class="[^"]*box-office-link[^"]*"[^>]*href="([^"]+)"[^>]*>/);
-if (!fallback || fallback[1].replaceAll('&amp;', '&') !== widgetUrl.href) {
+const links = [...html.matchAll(/<a\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi)]
+  .map(([tag]) => readAttributes(tag));
+const fallback = links.find(link => link.get('class')?.split(/\s+/).includes('box-office-link'));
+if (fallback?.get('href')?.replaceAll('&amp;', '&') !== widgetUrl.href) {
   throw new Error('Persistent ticket link must match the widget destination.');
 }
-if (!fallback[0].includes('rel="noopener noreferrer"')) throw new Error('New-tab ticket link needs a safe rel attribute.');
+for (const link of links) {
+  if (link.get('target')?.toLowerCase() !== '_blank') continue;
+  const relations = (link.get('rel') ?? '').toLowerCase().split(/\s+/);
+  if (!relations.includes('noopener') || !relations.includes('noreferrer')) {
+    throw new Error('New-tab link needs both noopener and noreferrer: ' + link.get('href'));
+  }
+}
 console.log('Public configuration, assets, anchors, translations and box-office destination checked.');
 

@@ -48,7 +48,7 @@ The screenshot is from the local preview. A successful Sites deployment is verif
 
 ## Ticket styling and venue update — 5 November 2026
 
-- Existing generated Ticket Tailor block confirmed byte-for-byte unchanged.
+- Confirmed the Ticket Tailor widget script and its configuration match the organiser-supplied embed.
 - Desktop live box office loads; Nova Godina 2027 opens ticket selection within the iframe. No quantities selected, orders submitted or payments made.
 - Published ticket names observed: General Admission, Child - ages 6 - 12, Child - ages 5 and under. Prices and fees remain provider-owned.
 - Google Maps renders the Oakville Legacy marker; address and external directions link remain available outside the iframe.
