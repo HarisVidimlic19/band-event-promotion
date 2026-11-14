@@ -116,3 +116,33 @@
   .hero-caption { letter-spacing: .7px; }
   .gallery-photo img { height: 340px; }
 }
+
+/* The original red-and-cream identity sits alongside the existing gold ticket actions. */
+.brand-emblem, .booking-emblem { display: block; width: 48px; height: 48px; flex-shrink: 0; border-radius: 3px; }
+.brand:hover .brand-emblem { outline: 1px solid #fff7d366; outline-offset: 3px; }
+.booking-emblem { width: 46px; height: 46px; }
+.band-heading { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: clamp(28px, 3.5vw, 58px); }
+.band-logo-showcase { width: 100%; margin: 0; padding: 0; background: #9b1111; border: 1px solid #fff7d32b; border-radius: 4px; overflow: hidden; box-shadow: 0 16px 36px #0002; }
+.band-logo-showcase img { width: 100%; height: auto; object-fit: contain; }
+.band-title-block .eyebrow { margin-bottom: 18px; font-size: 9px; letter-spacing: 1.7px; }
+.band-title-block h2 { font-size: clamp(36px, 3.6vw, 56px); }
+.band-heading .band-copy { padding-top: 0; margin-top: 0; font-size: 15px; }
+@media (max-width: 1100px) {
+  .band-heading { grid-template-columns: minmax(190px, 240px) minmax(0, 1fr); gap: 20px 40px; }
+  .band-logo-showcase { grid-row: 1 / 3; }
+  .band-title-block, .band-heading .band-copy { grid-column: 2; }
+  .band-title-block h2 { font-size: 42px; }
+}
+@media (max-width: 760px) {
+  .brand-emblem { width: 40px; height: 40px; }
+  .band-heading { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .band-logo-showcase { grid-row: auto; width: min(100%, 280px); margin-inline: auto; }
+  .band-title-block, .band-heading .band-copy { grid-column: auto; }
+  .band-title-block h2 { font-size: 43px; }
+}
+@media (max-width: 370px) {
+  .site-header .brand { gap: 8px; }
+  .site-header .brand > span:last-child { font-size: 12px; }
+  .site-header .brand small { font-size: 6px; letter-spacing: 3.4px; }
+  .site-header .header-actions { gap: 10px; }
+}
