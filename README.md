@@ -1,6 +1,6 @@
 # Sto Posto Live Band
 
-An English-first, Bosnian/English band website with real performance photography, a charcoal and warm-gold palette, responsive navigation and an embedded Ticket Tailor box office for current and future events. Static HTML, CSS and JavaScript; no runtime dependencies or monthly software subscription required by this frontend.
+An English-first, Bosnian/English band website with band portraits, an AI-assisted group composite, a charcoal and warm-gold palette, responsive navigation and an embedded Ticket Tailor box office for current and future events. Static HTML, CSS and JavaScript; no runtime dependencies or monthly software subscription required by this frontend.
 
 ## View and edit
 
@@ -10,14 +10,14 @@ An English-first, Bosnian/English band website with real performance photography
 - Embedded box office and permanent fallback link: `dist/index.html`.
 - Translations, photo dialogs and interactions: `dist/app.js`.
 - Layout: `dist/styles.css`.
-- Original supplied performance photos: `dist/assets/band/`.
+- Band imagery: `dist/assets/band/`; individual portraits and responsive group imagery are used on the page, with the earlier supplied photos retained.
 - Research and photo provenance: [docs/RESEARCH.md](docs/RESEARCH.md).
 - Current box-office integration and future events: [docs/BOX-OFFICE.md](docs/BOX-OFFICE.md).
 - Earlier ticketing architecture notes: [docs/TICKETING.md](docs/TICKETING.md).
 - Organizer setup: [docs/TICKET-TAILOR-SETUP.md](docs/TICKET-TAILOR-SETUP.md).
 - Remaining event details: [docs/EVENT-WORKSHEET.md](docs/EVENT-WORKSHEET.md).
 
-The three supplied photos are unaltered copies. CSS controls their display crop; no synthetic people, AI photo generation or face changes are used. Member names have not been inferred. The Illustrator banner is deferred; existing `social-card.svg` / `social-card.png` are the earlier interim graphic and can be replaced in that phase. Preserve the photos as source material for the banner.
+The current gallery uses web-optimized versions of the three individual portraits supplied in `Pics_for_website.zip`. Their original editing history has not been independently verified. The hero is a new AI-assisted promotional group composite made from those portraits; it is not a photograph of an actual group performance. The layout preserves the complete group composition and instruments instead of cropping faces to fit the hero. Individual portraits open at full size, and their earlier photographic versions remain in `dist/assets/band/`. Member names have not been inferred. The Illustrator banner is deferred; `social-card.svg` / `social-card.png` remain the earlier interim sharing graphic.
 
 ## Current state
 
