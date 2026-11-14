@@ -11,6 +11,7 @@ An English-first, Bosnian/English band website with band portraits, an AI-assist
 - Translations, photo dialogs and interactions: `dist/app.js`.
 - Layout: `dist/styles.css`.
 - Band imagery: `dist/assets/band/`; individual portraits and responsive group imagery are used on the page, with the earlier supplied photos retained.
+- Official logo: `dist/assets/branding/`; the full red-and-cream vector logo appears beside the band introduction. A silhouette-only emblem is used in navigation, the ticket panel, footer and browser tab so tiny lettering is not squeezed into an icon. These are derivatives of the user's supplied logo, traced into paths without generative AI.
 - Research and photo provenance: [docs/RESEARCH.md](docs/RESEARCH.md).
 - Current box-office integration and future events: [docs/BOX-OFFICE.md](docs/BOX-OFFICE.md).
 - Earlier ticketing architecture notes: [docs/TICKETING.md](docs/TICKETING.md).
